@@ -21,7 +21,7 @@ public abstract class SimpleDashboard : ISimpleDashboard
 
     public string? GetLabel(string? culture = "*")
     {
-        return _names.TryGetValue(culture.IfNullOrWhiteSpace("*"), out var name) ? name : Alias;
+        return _names.TryGetValue(culture.IfNullOrWhiteSpace("*")!, out var name) ? name : Alias;
     }
 
     public void Allow(Func<IAccessRuleBuilder, IAccessRule> func)

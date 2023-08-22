@@ -8,10 +8,8 @@
     <Product>Umbraco.Community.SimpleDashboards</Product>
     <PackageId>Umbraco.Community.SimpleDashboards</PackageId>
     <Title>Umbraco.Community.SimpleDashboards</Title>
-    <Description>...</Description>
+    <Description>This packages aims to help developers quickly put together Umbraco Dashboards using C# only.</Description>
     <PackageTags>umbraco;umbraco-marketplace</PackageTags>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.0.0-alpha-001</Version>
     <Authors>James Carter</Authors>
     <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © James Carter</Copyright>
     <PackageProjectUrl>https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards</PackageProjectUrl>
@@ -19,6 +17,7 @@
     <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>images\icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +26,10 @@
     <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" Visible="false" PackagePath="images\icon.png" />
+  </ItemGroup>
+  
   <ItemGroup>
     <None Include="..\..\docs\README_nuget.md">
       <Pack>True</Pack>
