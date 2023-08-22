@@ -6,7 +6,7 @@
 
 This packages aims to help developers quickly put together Umbraco Dashboards using C# only.
 
-<img alt="Basic Dashboard in the Umbraco Office" src="https://raw.githubusercontent.com/jcdcdev/Umbraco.Community.SimpleDashboards/dev/docs/screenshot.png" />
+![Basic Dashboard in the Umbraco Office](https://raw.githubusercontent.com/jcdcdev/Umbraco.Community.SimpleDashboards/main/docs/screenshot.png)
 
 ## Features
 - Simplifies C# based dashboard creation

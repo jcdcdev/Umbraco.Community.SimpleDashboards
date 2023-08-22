@@ -12,7 +12,7 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 - Variant support (culture specific names)
 - Easy to define Access Rules
 
-<img alt="Basic Dashboard in the Umbraco Office" src="https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/dev/docs/screenshot.png" />
+<img alt="Basic Dashboard in the Umbraco Office" src="https://raw.githubusercontent.com/jcdcdev/Umbraco.Community.SimpleDashboards/main/docs/screenshot.png" />
 
 ## Quick Start
 

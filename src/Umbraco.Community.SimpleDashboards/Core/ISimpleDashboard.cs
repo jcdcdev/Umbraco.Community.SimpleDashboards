@@ -11,4 +11,5 @@ public interface ISimpleDashboard : IDashboard
     void SetView(string view);
     public void SetName(string name);
     public void SetName(string name, string culture);
+    string ViewComponent { get; }
 }

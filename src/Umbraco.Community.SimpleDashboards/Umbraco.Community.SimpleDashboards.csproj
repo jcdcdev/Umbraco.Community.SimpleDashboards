@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StaticWebAssetBasePath>App_Plugins</StaticWebAssetBasePath>
+    <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Umbraco.Community.SimpleDashboards</Product>
     <PackageId>Umbraco.Community.SimpleDashboards</PackageId>
@@ -18,10 +19,10 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>images\icon.png</PackageIcon>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2023.2.0"/>
     <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0"/>
     <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0"/>
   </ItemGroup>
@@ -36,5 +37,8 @@
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
-
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Dashboards\ViewNotFound.cshtml" />
+  </ItemGroup>
 </Project>
