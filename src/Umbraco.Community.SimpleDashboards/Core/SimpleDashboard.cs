@@ -59,4 +59,6 @@ public abstract class SimpleDashboard : ISimpleDashboard
     {
         _names.TryAdd(culture, name);
     }
+
+    public string ViewComponent => $"{Alias}Dashboard";
 }
