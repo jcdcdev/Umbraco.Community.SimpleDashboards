@@ -23,6 +23,7 @@ jobs:
         id: gitversion # id to later be referenced
         uses: gittools/actions/gitversion/execute@v0
   build:
+    name: push ${{ needs.determine-version.outputs.semVer }}
     runs-on: windows-latest
     needs: determine-version
     env:
@@ -35,10 +36,10 @@ jobs:
         with:
           dotnet-version: 6.0.x
       - name: Build project
-        run: dotnet build src\Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj --configuration Release -p:Version=%SEMVER%
+        run: dotnet build src\Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj --configuration Release -p:Version=$${{ env.SEMVER }}
       
       - name: Pack
-        run: dotnet pack src\Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj --configuration Release -p:Version=%SEMVER% --no-build --output
+        run: dotnet pack src\Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj --configuration Release -p:Version=$${{ env.SEMVER }} --no-build --output
 
       - name: Push to NuGet
         run: dotnet nuget push **\*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json  
