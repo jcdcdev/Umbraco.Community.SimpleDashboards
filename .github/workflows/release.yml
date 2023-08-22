@@ -6,6 +6,7 @@ on:
     branches:
       - main
     types: [closed]
+  workflow_dispatch:
 jobs:
   determine-version:
     runs-on: ubuntu-latest
