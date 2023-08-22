@@ -3,9 +3,10 @@ run-name: >
   push NuGet ${{ github.repository}} #${{ github.run_number }}
 
 on:
-  merge:
+  pull_request:
     branches:
       - main
+    types: [closed]
 
 jobs:
   determine-version:
