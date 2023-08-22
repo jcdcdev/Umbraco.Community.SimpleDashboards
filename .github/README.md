@@ -11,6 +11,8 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 - No package.manifest or lang/lang.xml files required!
 - Variant support (culture specific names)
 
+<img alt="Basic Dashboard in the Umbraco Office" src="https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/dev/docs/screenshot.png">
+
 ## Quick Start
 
 ### Install Package
