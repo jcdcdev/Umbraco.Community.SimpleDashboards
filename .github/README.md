@@ -40,7 +40,7 @@ public class BasicDashboard : SimpleDashboard { }
 ```
 ### More Examples
 
-[docs/examples.md](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/develop/docs/examples.md)
+[docs/examples.md](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/dev/docs/examples.md)
 
 ## Contributing
 
