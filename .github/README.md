@@ -1,7 +1,7 @@
 # Umbraco.Community.SimpleDashboards
 
-[![Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.Umbraco.Community.SimpleDashboards?color=cc9900)](https://www.nuget.org/packages/Umbraco.Community.Umbraco.Community.SimpleDashboards/)
-[![NuGet](https://img.shields.io/nuget/vpre/Umbraco.Community.Umbraco.Community.SimpleDashboards?color=0273B3)](https://www.nuget.org/packages/Umbraco.Community.Umbraco.Community.SimpleDashboards)
+[![Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.SimpleDashboards?color=cc9900)](https://www.nuget.org/packages/Umbraco.Community.SimpleDashboards/)
+[![NuGet](https://img.shields.io/nuget/vpre/Umbraco.Community.SimpleDashboards?color=0273B3)](https://www.nuget.org/packages/Umbraco.Community.SimpleDashboards)
 [![GitHub license](https://img.shields.io/github/license/jcdcdev/Umbraco.Community.SimpleDashboards?color=8AB803)](../LICENSE)
 
 This packages aims to help developers quickly put together Umbraco Dashboards using C# only.
@@ -12,7 +12,7 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 - Variant support (culture specific names)
 - Easy to define Access Rules
 
-<img alt="Basic Dashboard in the Umbraco Office" src="https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/dev/docs/screenshot.png">
+<img alt="Basic Dashboard in the Umbraco Office" src="https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/dev/docs/screenshot.png" />
 
 ## Quick Start
 
@@ -33,8 +33,8 @@ public class BasicDashboard : SimpleDashboard { }
 
 - Your view **must** go in `/Views/Dashboard`
 - You view **must** be the name of your C# class (without `Dashboard`)
-    - For example: `BasicDashboard.cs` => `/Views/Dashboard/Basic.cshtml`
-  
+  - For example: `BasicDashboard.cs` => `/Views/Dashboard/Basic.cshtml`
+
 ```csharp
 @inherits Umbraco.Community.SimpleDashboards.Web.DashboardViewPage
 
