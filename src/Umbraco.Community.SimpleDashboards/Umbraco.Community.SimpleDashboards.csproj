@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <StaticWebAssetBasePath>App_Plugins</StaticWebAssetBasePath>
+    <ContentTargetFolders>.</ContentTargetFolders>
+    <Product>Umbraco.Community.SimpleDashboards</Product>
+    <PackageId>Umbraco.Community.SimpleDashboards</PackageId>
+    <Title>Umbraco.Community.SimpleDashboards</Title>
+    <Description>...</Description>
+    <PackageTags>umbraco;umbraco-marketplace</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>0.0.0-alpha-001</Version>
+    <Authors>James Carter</Authors>
+    <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © James Carter</Copyright>
+    <PackageProjectUrl>https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards</RepositoryUrl>
+    <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2023.2.0"/>
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0"/>
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\docs\README_nuget.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

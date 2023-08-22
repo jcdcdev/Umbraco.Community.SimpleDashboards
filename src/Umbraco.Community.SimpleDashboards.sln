@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33020.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5A6D3C2C-E986-4648-ABD7-ED442746EEBC}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		..\.github\README.md = ..\.github\README.md
+		..\umbraco-marketplace.json = ..\umbraco-marketplace.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco.Community.SimpleDashboards", "Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj", "{EC825C30-A30B-4ABF-AD64-FCA92C9EA75C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umbraco.Community.SimpleDashboards.TestSite", "Umbraco.Community.SimpleDashboards.TestSite\Umbraco.Community.SimpleDashboards.TestSite.csproj", "{989D710F-EC50-4EFF-AE9D-26A68694FDB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC825C30-A30B-4ABF-AD64-FCA92C9EA75C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC825C30-A30B-4ABF-AD64-FCA92C9EA75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC825C30-A30B-4ABF-AD64-FCA92C9EA75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC825C30-A30B-4ABF-AD64-FCA92C9EA75C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{989D710F-EC50-4EFF-AE9D-26A68694FDB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{989D710F-EC50-4EFF-AE9D-26A68694FDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{989D710F-EC50-4EFF-AE9D-26A68694FDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{989D710F-EC50-4EFF-AE9D-26A68694FDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F07004F-9903-4AEB-9ED0-BE57A0326D20}
+	EndGlobalSection
+EndGlobal
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{5830A86F-99DA-459D-82FD-A24613A9F22F}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\release.yml = ..\.github\workflows\release.yml
+		..\.github\workflows\build.yml = ..\.github\workflows\build.yml
+	EndProjectSection
+EndProject

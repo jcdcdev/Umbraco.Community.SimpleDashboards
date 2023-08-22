@@ -1,0 +1,14 @@
+{
+    "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json", 
+    "AuthorDetails": {
+      "Name": "James Carter",
+      "ImageUrl": "https://github.com/jcdcdev.png"
+    },
+    "Category": "Developer Tools",
+    "Description": "This packages aims to help developers quickly put together custom Umbraco Dashboards using C# only.",
+    "LicenseTypes": [ "Free" ],
+    "IssueTrackerUrl": "https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/issues",
+    "PackageType": "Package",
+    "Tags": ["Backoffice", "Dashboard", "Extending", "Custom Dashboard"],
+    "Title": "Umbraco.Community.SimpleDashboards"
+  }

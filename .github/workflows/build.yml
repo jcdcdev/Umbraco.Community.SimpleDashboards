@@ -1,0 +1,22 @@
+name: Build Package
+
+on:
+  pull_request:
+    branches: "*"
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Build project
+        run: dotnet build src\Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj --configuration Release
