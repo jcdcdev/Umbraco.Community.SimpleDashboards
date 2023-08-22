@@ -1,13 +1,11 @@
 name: Release Package
 run-name: >
   push NuGet ${{ github.repository}} #${{ github.run_number }}
-
 on:
   pull_request:
     branches:
       - main
     types: [closed]
-
 jobs:
   determine-version:
     runs-on: ubuntu-latest
@@ -25,7 +23,6 @@ jobs:
         id: gitversion # id to later be referenced
         uses: gittools/actions/gitversion/execute@v0
   build:
-
     runs-on: windows-latest
     needs: determine-version
     env:
@@ -44,26 +41,25 @@ jobs:
         run: dotnet pack src\Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj --configuration Release -p:Version=%SEMVER% --no-build --output
 
       - name: Push to NuGet
-        run: dotnet nuget push **\*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
-        
-    post-deploy:
-      runs-on: ubuntu-latest
-      needs:
-        - determine-version
-        - build
-      env:
-        SEMVER: ${{ needs.determine-version.outputs.semVer }}
-      name: post-deploy ${{ needs.determine-version.outputs.semVer }}
-      permissions:
-        contents: write
-      steps:
-        - uses: actions/checkout@v3
-        - name: Tag commit
-          env:
-            TAG: ${{ env.SEMVER }}
-            MESSAGE: ""
-          run: |
-            git config user.name "${GITHUB_ACTOR}"
-            git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-            git tag -a "${TAG}" -m "${MESSAGE}"
-            git push origin "${TAG}"
+        run: dotnet nuget push **\*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json  
+  post-deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - determine-version
+      - build
+    env:
+      SEMVER: ${{ needs.determine-version.outputs.semVer }}
+    name: post-deploy ${{ needs.determine-version.outputs.semVer }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Tag commit
+        env:
+          TAG: ${{ env.SEMVER }}
+          MESSAGE: ""
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git tag -a "${TAG}" -m "${MESSAGE}"
+          git push origin "${TAG}"
