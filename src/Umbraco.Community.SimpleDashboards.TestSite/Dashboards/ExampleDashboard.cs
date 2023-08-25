@@ -1,4 +1,5 @@
-﻿using Umbraco.Community.SimpleDashboards.Core;
+﻿using jcdcdev.Umbraco.Core.AccessRule;
+using Umbraco.Community.SimpleDashboards.Core;
 
 namespace Umbraco.Community.SimpleDashboards.TestSite.Dashboards;
 
@@ -16,5 +17,13 @@ public class ExampleDashboard : SimpleDashboard
         // Show dashboard in the Media & Content sections
         AddSection(Cms.Core.Constants.Applications.Media);
         AddSection(Cms.Core.Constants.Applications.Content);
+
+        // Allow Editors
+        AddAccessRule(SimpleAccessRule.AllowEditorGroup);
+
+        // Allow custom User Group
+        Allow(x=>x.UserGroup("myGroup"));
+        // Deny custom User Group
+        Deny(x=>x.UserGroup("myOtherGroup"));
     }
 }
