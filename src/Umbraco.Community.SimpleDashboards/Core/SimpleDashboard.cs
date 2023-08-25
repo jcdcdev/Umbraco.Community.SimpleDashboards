@@ -1,4 +1,5 @@
-﻿using Umbraco.Cms.Core.Dashboards;
+﻿using jcdcdev.Umbraco.Core.AccessRule;
+using Umbraco.Cms.Core.Dashboards;
 using Umbraco.Extensions;
 
 namespace Umbraco.Community.SimpleDashboards.Core;
@@ -30,7 +31,7 @@ public abstract class SimpleDashboard : ISimpleDashboard
         AddAccessRule(func(builder));
     }
 
-    public void Deny(Func<IAccessRuleBuilder, IAccessRule> func)
+    public void Deny(Func<IAccessRuleUserGroupBuilder, IAccessRule> func)
     {
         var builder = AccessRuleBuilder.Deny();
         AddAccessRule(func(builder));    }

@@ -63,5 +63,5 @@ jobs:
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git tag -a "${TAG}" -m "${MESSAGE}"
+          git tag -a "${TAG}" -m "${MESSAGE}" -f
           git push origin "${TAG}"
