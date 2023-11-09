@@ -1,22 +1,19 @@
-name: Build Package
-
+name: Build
 on:
   pull_request:
     branches: "*"
+  workflow_dispatch:
 jobs:
-  build:
-
-    runs-on: windows-latest
-
-    steps:
-
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: 6.0.x
-
-      - name: Build project
-        run: dotnet build src\Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj --configuration Release
+  build_release:
+    permissions:
+      contents: write
+    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/build-release-template.yml@main
+    with:
+      project-name: 'Umbraco.Community.SimpleDashboards'
+      project-path: './src/Umbraco.Community.SimpleDashboards/Umbraco.Community.SimpleDashboards.csproj'
+      deploy: false
+      color-primary: '#644c2d'
+      color-secondary: '#988755'
+      color-tertiary: '#97a142'
+    secrets:
+      nuget-api-key: ${{ secrets.NUGET_API_KEY }}
