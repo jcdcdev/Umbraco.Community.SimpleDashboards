@@ -1,66 +1,20 @@
-name: Release Package
-run-name: >
-  push NuGet ${{ github.repository}} #${{ github.run_number }}
+name: Release
 on:
   pull_request:
-    branches:
-      - main
-    types: [closed]
+    branches: "main"
+    types: [ closed ]
+  workflow_dispatch:
 jobs:
-  determine-version:
-    runs-on: ubuntu-latest
-    outputs:
-      semVer: ${{ steps.gitversion.outputs.semVer }}
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0
-        with:
-          versionSpec: '5.x'
-      - name: Determine Version
-        id: gitversion # id to later be referenced
-        uses: gittools/actions/gitversion/execute@v0
-  build:
-    name: push ${{ needs.determine-version.outputs.semVer }}
-    runs-on: windows-latest
-    needs: determine-version
-    env:
-      SEMVER: ${{ needs.determine-version.outputs.semVer }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: 6.0.x
-      - name: Build project
-        run: dotnet build src\Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj --configuration Release -p:Version=${{ env.SEMVER }}
-      
-      - name: Pack
-        run: dotnet pack src\Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj --configuration Release -p:Version=${{ env.SEMVER }} --no-build --output
-
-      - name: Push to NuGet
-        run: dotnet nuget push **\*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json  
-  post-deploy:
-    runs-on: ubuntu-latest
-    needs:
-      - determine-version
-      - build
-    env:
-      SEMVER: ${{ needs.determine-version.outputs.semVer }}
-    name: post-deploy ${{ needs.determine-version.outputs.semVer }}
+  build_release:
     permissions:
       contents: write
-    steps:
-      - uses: actions/checkout@v3
-      - name: Tag commit
-        env:
-          TAG: ${{ env.SEMVER }}
-          MESSAGE: ""
-        run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git tag -a "${TAG}" -m "${MESSAGE}" -f
-          git push origin "${TAG}"
+    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/build-release-template.yml@main
+    with:
+      project-name: 'Umbraco.Community.SimpleDashboards'
+      project-path: './src/Umbraco.Community.SimpleDashboards/Umbraco.Community.SimpleDashboards.csproj'
+      deploy: true
+      color-primary: '#644c2d'
+      color-secondary: '#988755'
+      color-tertiary: '#97a142'
+    secrets:
+      nuget-api-key: ${{ secrets.NUGET_API_KEY }}
