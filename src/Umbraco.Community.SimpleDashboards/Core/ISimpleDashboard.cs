@@ -5,6 +5,7 @@ namespace Umbraco.Community.SimpleDashboards.Core;
 
 public interface ISimpleDashboard : IDashboard
 {
+    string ViewComponent { get; }
     string? GetLabel(string? culture = "*");
 
     void Allow(Func<IAccessRuleBuilder, IAccessRule> func);
@@ -12,5 +13,4 @@ public interface ISimpleDashboard : IDashboard
     void SetView(string view);
     public void SetName(string name);
     public void SetName(string name, string culture);
-    string ViewComponent { get; }
 }

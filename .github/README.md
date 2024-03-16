@@ -20,6 +20,7 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 ## Quick Start
 
 ### Install Package
+
 ```csharp
 dotnet add package Umbraco.Community.SimpleDashboards 
 ```
@@ -27,6 +28,7 @@ dotnet add package Umbraco.Community.SimpleDashboards
 ### Register Dashboard
 
 By default this will display in the content section for Admins only.
+
 ```csharp
 using Umbraco.Community.SimpleDashboards.Core; 
 public class BasicDashboard : SimpleDashboard { }
@@ -36,7 +38,7 @@ public class BasicDashboard : SimpleDashboard { }
 
 - Your view **must** go in `/Views/Dashboard`
 - You view **must** be the name of your C# class (without `Dashboard`)
-  - For example: `BasicDashboard.cs` => `/Views/Dashboard/Basic.cshtml`
+    - For example: `BasicDashboard.cs` => `/Views/Dashboard/Basic.cshtml`
 
 ```csharp
 @inherits Umbraco.Community.SimpleDashboards.Web.DashboardViewPage
@@ -44,6 +46,7 @@ public class BasicDashboard : SimpleDashboard { }
 <h1>Hello Umbraco</h1>
 <p>My Dashboard alias is: @Model.Dashboard.Alias</p>
 ```
+
 ### More Examples
 
 [docs/examples.md](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/dev/docs/examples.md)

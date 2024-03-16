@@ -23,18 +23,9 @@ public class SimpleDashboardService : ISimpleDashboardService
         }
     }
 
-    public ISimpleDashboard? GetDashboard(string alias)
-    {
-        return _simpleDashboards.TryGetValue(alias, out var dashboard) ? dashboard : null;
-    }
+    public ISimpleDashboard? GetDashboard(string alias) => _simpleDashboards.TryGetValue(alias, out var dashboard) ? dashboard : null;
 
-    public IEnumerable<ISimpleDashboard>? Get()
-    {
-        return _simpleDashboards.Values;
-    }
+    public IEnumerable<ISimpleDashboard>? Get() => _simpleDashboards.Values;
 
-    private string CreateUrl(string alias, string umbracoArea = "umbraco")
-    {
-        return $"/{umbracoArea}/{Cms.Core.Constants.Web.Mvc.BackOfficePathSegment}/{Constants.Area}/render/{alias}";
-    }
+    private string CreateUrl(string alias, string umbracoArea = "umbraco") => $"/{umbracoArea}/{Cms.Core.Constants.Web.Mvc.BackOfficePathSegment}/{Constants.Area}/render/{alias}";
 }

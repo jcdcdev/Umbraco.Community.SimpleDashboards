@@ -47,15 +47,12 @@ public static class UmbracoBuilderExtensions
                         {
                             controller = "SimpleDashboard",
                             action = "Render",
-                            area = area,
+                            area
                         });
                 })
             });
         });
     }
 
-    private static SimpleDashboardCollectionBuilder SimpleDashboards(this IUmbracoBuilder builder)
-    {
-        return builder.WithCollectionBuilder<SimpleDashboardCollectionBuilder>();
-    }
+    private static SimpleDashboardCollectionBuilder SimpleDashboards(this IUmbracoBuilder builder) => builder.WithCollectionBuilder<SimpleDashboardCollectionBuilder>();
 }
