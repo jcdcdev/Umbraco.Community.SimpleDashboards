@@ -1,17 +1,17 @@
 @using Umbraco.Community.SimpleDashboards.Core
 @inherits Umbraco.Community.SimpleDashboards.Web.DashboardViewPage
 @{
-	var path = $"~/Views/Dashboards/{Model.Dashboard.Alias}.cshtml";
-	var viewComponentName = Model.Dashboard.ViewComponent;
+    var path = $"~/Views/Dashboards/{Model.Dashboard.Alias}.cshtml";
+    var viewComponentName = Model.Dashboard.ViewComponent;
 }
 <umb-box>
-	<umb-box-header title-key="simpleDashboards_viewNotFound">
-	</umb-box-header>
-	<umb-box-content>
-		<p>Please create either of the following:</p>
-		<ul>
-			<li>A View located at <code>@path</code><umb-code-snippet title="@path" language="'CSHTML'">@Constants.ExampleView</umb-code-snippet></li>
-			<li>A ViewComponent called <code>@viewComponentName</code><umb-code-snippet title="@viewComponentName" language="'csharp'">@Constants.ExampleViewComponent(viewComponentName)</umb-code-snippet></li>
-		</ul>
-	</umb-box-content>
+    <umb-box-header title-key="simpleDashboards_viewNotFound">
+    </umb-box-header>
+    <umb-box-content>
+        <p>Please create either of the following:</p>
+        <ul>
+            <li>A View located at <code>@path</code><umb-code-snippet title="@path" language="'CSHTML'">@Constants.ExampleView</umb-code-snippet></li>
+            <li>A ViewComponent called <code>@viewComponentName</code><umb-code-snippet title="@viewComponentName" language="'csharp'">@Constants.ExampleViewComponent(viewComponentName)</umb-code-snippet></li>
+        </ul>
+    </umb-box-content>
 </umb-box>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <language alias="en" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
-	<creator>
-		<name>James Carter</name>
-		<link>https://jcdc.dev</link>
-	</creator>
-	<area alias="simpleDashboards">
-		<key alias="viewNotFound">View not found</key>
-	</area>
+    <creator>
+        <name>James Carter</name>
+        <link>https://jcdc.dev</link>
+    </creator>
+    <area alias="simpleDashboards">
+        <key alias="viewNotFound">View not found</key>
+    </area>
 </language>
