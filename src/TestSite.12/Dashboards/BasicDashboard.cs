@@ -4,5 +4,4 @@ namespace TestSite.Twelve.Dashboards;
 
 public class BasicDashboard : SimpleDashboard
 {
-    public BasicDashboard() { }
 }
