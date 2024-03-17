@@ -2,7 +2,7 @@
 
 namespace Umbraco.Community.SimpleDashboards.Core;
 
-public class SimpleDashboardCollectionBuilder : OrderedCollectionBuilderBase<SimpleDashboardCollectionBuilder,SimpleDashboardCollection,ISimpleDashboard>
+public class SimpleDashboardCollectionBuilder : OrderedCollectionBuilderBase<SimpleDashboardCollectionBuilder, SimpleDashboardCollection, ISimpleDashboard>
 {
     protected override SimpleDashboardCollectionBuilder This => this;
 }

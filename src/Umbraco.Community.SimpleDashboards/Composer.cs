@@ -2,14 +2,13 @@ using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Community.SimpleDashboards.Core;
 
-namespace Umbraco.Community.SimpleDashboards
+namespace Umbraco.Community.SimpleDashboards;
+
+internal class Composer : IComposer
 {
-    internal class Composer : IComposer
+    public void Compose(IUmbracoBuilder builder)
     {
-        public void Compose(IUmbracoBuilder builder)
-        {
-            builder.ManifestFilters().Append<ManifestFilter>();
-            builder.AddSimpleDashboards();
-        }
+        builder.ManifestFilters().Append<ManifestFilter>();
+        builder.AddSimpleDashboards();
     }
 }

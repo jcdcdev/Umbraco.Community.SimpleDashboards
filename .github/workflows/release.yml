@@ -1,20 +1,23 @@
 name: Release
 on:
-  pull_request:
-    branches: "main"
-    types: [ closed ]
   workflow_dispatch:
 jobs:
-  build_release:
-    permissions:
-      contents: write
-    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/build-release-template.yml@main
+  build:
+    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/build-template.yml@main
     with:
       project-name: 'Umbraco.Community.SimpleDashboards'
       project-path: './src/Umbraco.Community.SimpleDashboards/Umbraco.Community.SimpleDashboards.csproj'
-      deploy: true
-      color-primary: '#644c2d'
-      color-secondary: '#988755'
-      color-tertiary: '#97a142'
+      npm-enabled: true
+      npm-working-dir: './src/Umbraco.Community.SimpleDashboards.Client/'
+      npm-run-command: 'build'
+  release:
+    needs:
+      - build
+    permissions:
+      contents: write
+    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/release-template.yml@main
+    with:
+      artifact-name: ${{ needs.build.outputs.artifact-name }}
+      version: ${{ needs.build.outputs.version }}
     secrets:
       nuget-api-key: ${{ secrets.NUGET_API_KEY }}

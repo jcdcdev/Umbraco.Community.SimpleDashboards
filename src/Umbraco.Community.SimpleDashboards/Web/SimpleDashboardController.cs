@@ -16,11 +16,11 @@ namespace Umbraco.Community.SimpleDashboards.Web;
 [Area(Constants.Area)]
 public class SimpleDashboardController : Controller
 {
-    private readonly ICompositeViewEngine _viewEngine;
-    private readonly ISimpleDashboardService _service;
     private readonly ILogger _logger;
-    private readonly IViewComponentDescriptorProvider _viewComponentDescriptorProvider;
     private readonly IAppPolicyCache _runtimeCache;
+    private readonly ISimpleDashboardService _service;
+    private readonly IViewComponentDescriptorProvider _viewComponentDescriptorProvider;
+    private readonly ICompositeViewEngine _viewEngine;
 
     public SimpleDashboardController(
         ICompositeViewEngine viewEngine,

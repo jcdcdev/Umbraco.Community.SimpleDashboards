@@ -50,6 +50,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{5830A8
 	ProjectSection(SolutionItems) = preProject
 		..\.github\workflows\release.yml = ..\.github\workflows\release.yml
 		..\.github\workflows\build.yml = ..\.github\workflows\build.yml
+		..\.github\dependabot.yml = ..\.github\dependabot.yml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSite.10", "TestSite.10\TestSite.10.csproj", "{22165B0B-C1A9-48EA-8876-774C7A97BA89}"

@@ -6,5 +6,8 @@ public class DashboardModel
 {
     public readonly ISimpleDashboard Dashboard;
 
-    public DashboardModel(ISimpleDashboard dashboard) => Dashboard = dashboard;
+    public DashboardModel(ISimpleDashboard dashboard)
+    {
+        Dashboard = dashboard;
+    }
 }

@@ -9,8 +9,8 @@ namespace Umbraco.Community.SimpleDashboards.Core;
 
 public class EditorSendingContentNotificationHandler : INotificationHandler<SendingDashboardsNotification>
 {
-    private readonly ISimpleDashboardService _dashboardService;
     private readonly IBackOfficeSecurityAccessor _backOfficeSecurityAccessor;
+    private readonly ISimpleDashboardService _dashboardService;
     private readonly ILocalizationService _localizationService;
     private readonly ILocalizedTextService _localizedTextService;
 
