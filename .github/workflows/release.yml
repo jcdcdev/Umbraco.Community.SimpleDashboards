@@ -7,9 +7,6 @@ jobs:
     with:
       project-name: 'Umbraco.Community.SimpleDashboards'
       project-path: './src/Umbraco.Community.SimpleDashboards/Umbraco.Community.SimpleDashboards.csproj'
-      npm-enabled: true
-      npm-working-dir: './src/Umbraco.Community.SimpleDashboards.Client/'
-      npm-run-command: 'build'
   release:
     needs:
       - build
