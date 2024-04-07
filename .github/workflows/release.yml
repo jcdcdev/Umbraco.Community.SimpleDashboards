@@ -1,14 +1,18 @@
-name: Release
+name: 🚀 Release
 on:
   workflow_dispatch:
 jobs:
+  metadata:
+    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/generate-project-metadata.yml@main
   build:
-    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/build-template.yml@main
+    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/build-template.yml@main    
+    needs: 
+      - metadata
     with:
-      project-name: 'Umbraco.Community.SimpleDashboards'
-      project-path: './src/Umbraco.Community.SimpleDashboards/Umbraco.Community.SimpleDashboards.csproj'
+      project-name: ${{ needs.metadata.outputs.project-name }}
+      project-path: ${{ needs.metadata.outputs.project-path }}
   release:
-    needs:
+    needs: 
       - build
     permissions:
       contents: write

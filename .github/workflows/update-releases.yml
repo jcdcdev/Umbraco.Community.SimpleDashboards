@@ -1,4 +1,4 @@
-name: 📄 Update releases
+name: 📄 Update Releases
 on:
   workflow_dispatch:
     inputs:
