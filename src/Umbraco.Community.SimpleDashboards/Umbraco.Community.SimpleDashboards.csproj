@@ -12,7 +12,7 @@
 		<Title>Umbraco.Community.SimpleDashboards</Title>
 		<Description>This packages aims to help developers quickly put together Umbraco Dashboards using C# only.</Description>
 		<PackageTags>umbraco;umbraco-marketplace</PackageTags>
-		<Authors>James C</Authors>
+		<Authors>James Carter</Authors>
 		<Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © James C</Copyright>
 		<PackageProjectUrl>https://jcdc.dev/umbraco-packages/simple-dashboards</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards</RepositoryUrl>
