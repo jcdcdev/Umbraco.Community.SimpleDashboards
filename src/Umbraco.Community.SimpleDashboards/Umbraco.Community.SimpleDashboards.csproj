@@ -17,6 +17,9 @@
         <PackageProjectUrl>https://jcdc.dev/umbraco-packages/simple-dashboards</PackageProjectUrl>
         <RepositoryUrl>https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards</RepositoryUrl>
         <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>images\icon.png</PackageIcon>
     </PropertyGroup>
 
     <ItemGroup>
