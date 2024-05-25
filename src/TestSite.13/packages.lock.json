@@ -155,10 +155,10 @@
       },
       "jcdcdev.Umbraco.Core": {
         "type": "Transitive",
-        "resolved": "10.1.0",
-        "contentHash": "JNtG/md0E72JoDS9mWXK/QIV/mfk49LZjNVoX/FLwoyxan2D/pi7G6wY7b+HMyKw/rvy6ZmwvgkpS8ZZxlr5fw==",
+        "resolved": "13.0.1",
+        "contentHash": "yNWhu3EEiqqSXE2b7xy730pVylcsqAaJxaH64HuGVMcZpUq7FfiDVF2mjbB97sx6XIcFpLq8a9btpzZN83mq6w==",
         "dependencies": {
-          "Umbraco.Cms.Web.Common": "[10.4.0, 11.0.0)"
+          "Umbraco.Cms.Web.Common": "[13.0.0, 14.0.0)"
         }
       },
       "K4os.Compression.LZ4": {
@@ -2801,9 +2801,9 @@
       "umbraco.community.simpledashboards": {
         "type": "Project",
         "dependencies": {
-          "Umbraco.Cms.Core": "[10.4.0, 11.0.0)",
-          "Umbraco.Cms.Web.BackOffice": "[10.4.0, 11.0.0)",
-          "jcdcdev.Umbraco.Core": "[10.1.0, )"
+          "Umbraco.Cms.Core": "[13.0.0, 14.0.0)",
+          "Umbraco.Cms.Web.BackOffice": "[13.0.0, 14.0.0)",
+          "jcdcdev.Umbraco.Core": "[13.0.1, )"
         }
       }
     }
