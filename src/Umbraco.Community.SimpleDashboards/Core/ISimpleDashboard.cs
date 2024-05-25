@@ -1,5 +1,6 @@
 ﻿using jcdcdev.Umbraco.Core.AccessRule;
 using Umbraco.Cms.Core.Dashboards;
+using Umbraco.Cms.Web.Website.Models;
 
 namespace Umbraco.Community.SimpleDashboards.Core;
 
