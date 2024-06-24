@@ -2,12 +2,7 @@
 
 namespace Umbraco.Community.SimpleDashboards.Web;
 
-public class DashboardModel
+public class DashboardModel(ISimpleDashboard dashboard)
 {
-    public readonly ISimpleDashboard Dashboard;
-
-    public DashboardModel(ISimpleDashboard dashboard)
-    {
-        Dashboard = dashboard;
-    }
+    public readonly ISimpleDashboard Dashboard = dashboard;
 }

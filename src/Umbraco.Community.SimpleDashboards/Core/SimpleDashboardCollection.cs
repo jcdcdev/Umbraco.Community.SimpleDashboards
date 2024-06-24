@@ -2,9 +2,4 @@
 
 namespace Umbraco.Community.SimpleDashboards.Core;
 
-public class SimpleDashboardCollection : BuilderCollectionBase<ISimpleDashboard>
-{
-    public SimpleDashboardCollection(Func<IEnumerable<ISimpleDashboard>> items) : base(items)
-    {
-    }
-}
+public class SimpleDashboardCollection(Func<IEnumerable<ISimpleDashboard>> items) : BuilderCollectionBase<ISimpleDashboard>(items);

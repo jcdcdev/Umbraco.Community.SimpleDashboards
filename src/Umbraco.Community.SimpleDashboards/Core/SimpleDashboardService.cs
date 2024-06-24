@@ -1,7 +1,6 @@
 ﻿using System.Collections.Concurrent;
-using Microsoft.Extensions.Options;
-using Umbraco.Cms.Core.Configuration.Models;
-using Umbraco.Cms.Core.Hosting;
+using Humanizer;
+using Microsoft.Extensions.Logging;
 using Umbraco.Extensions;
 
 namespace Umbraco.Community.SimpleDashboards.Core;
@@ -10,22 +9,20 @@ public class SimpleDashboardService : ISimpleDashboardService
 {
     private readonly ConcurrentDictionary<string, ISimpleDashboard> _simpleDashboards;
 
-    public SimpleDashboardService(SimpleDashboardCollection simpleDashboards, IOptions<GlobalSettings> options, IHostingEnvironment hostingEnvironment)
+    public SimpleDashboardService(SimpleDashboardCollection simpleDashboards, ILogger<SimpleDashboardService> logger)
     {
         _simpleDashboards = new ConcurrentDictionary<string, ISimpleDashboard>();
-        var umbracoArea = options.Value.GetUmbracoMvcArea(hostingEnvironment);
-
         foreach (var simpleDashboard in simpleDashboards)
         {
-            var url = CreateUrl(simpleDashboard.Alias!, umbracoArea);
-            simpleDashboard.SetView(url);
-            _simpleDashboards.TryAdd(simpleDashboard.Alias!, simpleDashboard);
+            if (!_simpleDashboards.TryAdd(simpleDashboard.Alias.Kebaberize(), simpleDashboard))
+            {
+                logger.LogWarning("SimpleDashboard with alias {Alias} already exists, skipping", simpleDashboard.Alias);
+            }
         }
     }
 
-    public ISimpleDashboard? GetDashboard(string alias) => _simpleDashboards.TryGetValue(alias, out var dashboard) ? dashboard : null;
+    public ISimpleDashboard? GetByAlias(string alias) => GetByPath(alias.Kebaberize());
+    public ISimpleDashboard? GetByPath(string path) => _simpleDashboards.TryGetValue(path.ToLowerInvariant(), out var dashboard) ? dashboard : null;
 
-    public IEnumerable<ISimpleDashboard>? Get() => _simpleDashboards.Values;
-
-    private string CreateUrl(string alias, string umbracoArea = "umbraco") => $"/{umbracoArea}/{Cms.Core.Constants.Web.Mvc.BackOfficePathSegment}/{Constants.Area}/render/{alias}";
+    public IEnumerable<ISimpleDashboard> GetAll() => _simpleDashboards.Values;
 }
