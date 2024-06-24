@@ -2,6 +2,7 @@
 
 public interface ISimpleDashboardService
 {
-    ISimpleDashboard? GetDashboard(string alias);
-    IEnumerable<ISimpleDashboard>? Get();
+    ISimpleDashboard? GetByAlias(string alias);
+    ISimpleDashboard? GetByPath(string path);
+    IEnumerable<ISimpleDashboard> GetAll();
 }

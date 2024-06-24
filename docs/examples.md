@@ -21,46 +21,30 @@ public class BasicDashboard : SimpleDashboard { }
 ```csharp
 @inherits Umbraco.Community.SimpleDashboards.DashboardViewPage
 
-<h1>Hello Umbraco</h1>
-<p>My Dashboard alias is: @Model.Dashboard.Alias</p>
+<uui-box headline="Hello Umbraco">
+    <p>My Dashboard is: @Model.Dashboard.Alias</p>
+</uui-box>
 ```
 
 ## Detailed Register Dashboard
 
-By adding a constructor you can define permissions, where to display (content sections) and the name 
+By adding a constructor you can define permissions, where to display and the name of the dashboard.
+
 ```csharp
 using Umbraco.Community.SimpleDashboards.Core;
 
-// Control order of where dashboard shows 
-[Umbraco.Cms.Core.Composing.Weight(-100)]
 public class ExampleDashboard : SimpleDashboard
 {
     public ExampleDashboard()
     {
-        // Allow Admin User Group to see dashboard
-        AddAccessRule(SimpleAccessRule.AllowAdminGroup);
-
-        // Custom Section permissions
-        Allow(x => x.Section("content"));
-        Deny(x => x.Section("content"));
-
-        // Custom User Groups
-        Allow(x=>x.UserGroup("myGroup"));
-        Deny(x=>x.UserGroup("myOtherGroup"));
-        
-        // Set dashboard name
-        SetName("Dashboard Name");
-
-        // Set culture specific dashboard name 
-        SetName("Dashboard Name (cy-GB)", "cy-GB");
-        
-        // Show dashboard in the Media section
-        AddSection(Umbraco.Cms.Core.Constants.Applications.Media);
-        
-        // Show dashboard in your custom section
-        AddSection("mySection");
+        SetName("Example Dashboard");
+        SetWeight(500);
+        // Show dashboard in the Media & Content sections
+        AddSection("Umb.Section.Media");
+        AddSection("Umb.Section.Content");
     }
 }
+
 ```
 
 ## View Component Example
