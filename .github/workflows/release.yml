@@ -5,7 +5,7 @@ on:
     types: [ closed ]
 jobs:
   metadata:
-    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/generate-project-metadata.yml@dev
+    uses: jcdcdev/jcdcdev.Github.UmbracoSimpleDeploy/.github/workflows/generate-project-metadata.yml@main
   release:
     runs-on: ubuntu-latest
     permissions:
@@ -19,6 +19,8 @@ jobs:
         with:
           project-name: ${{ needs.metadata.outputs.project-name}}
           project-path: ${{ needs.metadata.outputs.project-path }}
+          npm-working-dir: ${{ needs.metadata.outputs.npm-working-dir }}
+          npm-enabled: true
           umbraco-version: 14
       - name: Release
         uses: jcdcdev/jcdcdev.Umbraco.GitHub.Release@main
