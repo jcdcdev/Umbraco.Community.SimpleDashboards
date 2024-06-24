@@ -355,3 +355,4 @@ MigrationBackup/
 # Rider
 src/.idea
 *.sqlite.db*
+/src/Umbraco.Community.SimpleDashboards/wwwroot/App_Plugins/Umbraco.Community.SimpleDashboards/dist/

@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-<!--        <ProjectReference Include="../Umbraco.Community.SimpleDashboards/Umbraco.Community.SimpleDashboards.csproj"/>-->
+      <ProjectReference Include="..\Umbraco.Community.SimpleDashboards\Umbraco.Community.SimpleDashboards.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -24,12 +24,6 @@
     <PropertyGroup>
         <!-- Razor files are needed for the backoffice to work correctly -->
         <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
-        <RazorCompileOnBuild>false</RazorCompileOnBuild>
-        <RazorCompileOnPublish>false</RazorCompileOnPublish>
     </PropertyGroup>
 
 </Project>
