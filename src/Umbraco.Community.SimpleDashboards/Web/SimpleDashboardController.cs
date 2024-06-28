@@ -1,4 +1,5 @@
 ﻿using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
@@ -13,16 +14,16 @@ using Umbraco.Cms.Core.Cache;
 using Umbraco.Community.SimpleDashboards.Core;
 using Umbraco.Extensions;
 using Microsoft.Extensions.DependencyInjection;
+using Umbraco.Cms.Web.Common.Authorization;
 
 namespace Umbraco.Community.SimpleDashboards.Web;
 
 [ApiExplorerSettings(GroupName = "Simple Dashboards")]
-[RelationsManagerVersionedRoute("")]
+[SimpleDashboardsVersionedRoute("")]
 [MapToApi(Constants.Api.ApiName)]
 [JsonOptionsName(Cms.Core.Constants.JsonOptionsNames.BackOffice)]
 [ApiController]
-// [Authorize(Policy = AuthorizationPolicies.BackOfficeAccess)]
-// [Authorize(Policy = AuthorizationPolicies.UmbracoFeatureEnabled)]
+[Authorize(Policy = AuthorizationPolicies.BackOfficeAccess)]
 [AppendEventMessages]
 [Produces("application/json")]
 public class SimpleDashboardController(
