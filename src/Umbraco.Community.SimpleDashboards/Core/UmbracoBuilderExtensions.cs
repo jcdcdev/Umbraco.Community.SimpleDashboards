@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Infrastructure.Manifest;
+using Umbraco.Community.SimpleDashboards.Core.Models;
 using Umbraco.Community.SimpleDashboards.Web;
 
 namespace Umbraco.Community.SimpleDashboards.Core;

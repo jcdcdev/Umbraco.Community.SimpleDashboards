@@ -1,4 +1,4 @@
-﻿namespace Umbraco.Community.SimpleDashboards.Core;
+﻿namespace Umbraco.Community.SimpleDashboards.Core.Models;
 
 public interface ISimpleDashboard
 {
