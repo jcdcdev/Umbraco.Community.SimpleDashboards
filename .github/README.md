@@ -26,10 +26,10 @@ dotnet add package Umbraco.Community.SimpleDashboards
 
 ### Register Dashboard
 
-By default this will display in the content section for Admins only.
+By default, this will display in the content section for Admins only.
 
 ```csharp
-using Umbraco.Community.SimpleDashboards.Core; 
+using Umbraco.Community.SimpleDashboards.Web; 
 public class BasicDashboard : SimpleDashboard { }
 ```
 

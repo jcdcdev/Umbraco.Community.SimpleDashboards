@@ -9,7 +9,7 @@ dotnet add package Umbraco.Community.SimpleDashboards
 
 By default this will display in the content section for Admins only.
 ```csharp
-using Umbraco.Community.SimpleDashboards.Core; 
+using Umbraco.Community.SimpleDashboards.Web; 
 public class BasicDashboard : SimpleDashboard { }
 ```
 
@@ -31,18 +31,16 @@ public class BasicDashboard : SimpleDashboard { }
 By adding a constructor you can define permissions, where to display and the name of the dashboard.
 
 ```csharp
-using Umbraco.Community.SimpleDashboards.Core;
+using Umbraco.Community.SimpleDashboards.Web;
 
 public class ExampleDashboard : SimpleDashboard
 {
-    public ExampleDashboard()
-    {
-        SetName("Example Dashboard");
-        SetWeight(500);
-        // Show dashboard in the Media & Content sections
-        AddSection("Umb.Section.Media");
-        AddSection("Umb.Section.Content");
-    }
+    public override string Name => "Example Dashboard";
+
+    public override int Weight => 500;
+
+    // Show dashboard in the Media section
+    public override string[] Sections => ["Umb.Section.Media", "Umb.Section.Content"];
 }
 
 ```
