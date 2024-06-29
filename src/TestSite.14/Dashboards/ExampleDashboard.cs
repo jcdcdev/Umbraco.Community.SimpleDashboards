@@ -1,15 +1,13 @@
-using Umbraco.Community.SimpleDashboards.Core;
+using Umbraco.Community.SimpleDashboards.Web;
 
 namespace TestSite.Fourteen.Dashboards;
 
 public class ExampleDashboard : SimpleDashboard
 {
-    public ExampleDashboard()
-    {
-        SetName("Example Dashboard");
-        SetWeight(500);
-        // Show dashboard in the Media section
-        AddSection("Umb.Section.Media");
-        AddSection("Umb.Section.Content");
-    }
+    public override string Name => "Example Dashboard";
+
+    public override int Weight => 500;
+
+    // Show dashboard in the Media section
+    public override string[] Sections => ["Umb.Section.Media", "Umb.Section.Content"];
 }

@@ -1,4 +1,4 @@
-using Umbraco.Community.SimpleDashboards.Core;
+using Umbraco.Community.SimpleDashboards.Web;
 
 namespace TestSite.Fourteen.Dashboards;
 

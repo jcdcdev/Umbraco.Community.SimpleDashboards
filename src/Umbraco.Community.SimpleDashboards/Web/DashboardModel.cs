@@ -1,5 +1,4 @@
-﻿using Umbraco.Community.SimpleDashboards.Core;
-using Umbraco.Community.SimpleDashboards.Core.Models;
+﻿using Umbraco.Community.SimpleDashboards.Core.Models;
 
 namespace Umbraco.Community.SimpleDashboards.Web;
 
