@@ -4,7 +4,7 @@
     "net8.0": {
       "jcdcdev.Umbraco.Core": {
         "type": "Direct",
-        "requested": "[14.0.2, 15.0.0)",
+        "requested": "[14.0.2, )",
         "resolved": "14.0.2",
         "contentHash": "I8geaR2UxMW3dGTf7/e47TQpLvhGB8ZUcMpGH60wDV5gx1Y3zsOUTC+UHgJ4jH4QLV4uXbnMSiJin92lbxnBWA==",
         "dependencies": {
