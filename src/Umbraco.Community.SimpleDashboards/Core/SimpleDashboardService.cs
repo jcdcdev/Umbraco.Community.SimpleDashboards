@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using Humanizer;
 using Microsoft.Extensions.Logging;
+using Umbraco.Community.SimpleDashboards.Core.Models;
 using Umbraco.Extensions;
 
 namespace Umbraco.Community.SimpleDashboards.Core;
