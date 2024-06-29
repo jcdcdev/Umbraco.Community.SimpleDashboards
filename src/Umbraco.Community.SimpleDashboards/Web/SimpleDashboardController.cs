@@ -49,7 +49,7 @@ public class SimpleDashboardController(
         }
 
         var model = new DashboardModel(dash);
-        var path = $"~/Views/Dashboards/{dashboard}.cshtml";
+        var path = $"~/Views/Dashboards/{model.Dashboard.Alias}.cshtml";
         var result = viewEngine.GetView(null, path, false);
         if (result.Success)
         {
