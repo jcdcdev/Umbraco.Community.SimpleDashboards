@@ -99,12 +99,23 @@ public class SimpleDashboardController(
 
     private async Task<SimpleDashboardRenderModel> RenderAsync(ViewEngineResult result, object? model)
     {
+        if (result.View == null)
+        {
+            return SimpleDashboardRenderModel.Error;
+        }
+
         var writer = new StringWriter();
-        var viewContext = new ViewContext(new ActionContext(HttpContext, RouteData, ControllerContext.ActionDescriptor, ModelState), result.View, ViewData, TempData, writer, new HtmlHelperOptions());
-        viewContext.ViewData.Model = model;
+        var viewContext = new ViewContext(new ActionContext(HttpContext, RouteData, ControllerContext.ActionDescriptor, ModelState), result.View, ViewData, TempData, writer, new HtmlHelperOptions())
+        {
+            ViewData =
+            {
+                Model = model
+            }
+        };
+
         await result.View.RenderAsync(viewContext);
         var body = writer.ToString();
-        return new SimpleDashboardRenderModel()
+        return new SimpleDashboardRenderModel
         {
             Body = body
         };
