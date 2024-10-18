@@ -43,5 +43,5 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{5830A8
 		..\.github\dependabot.yml = ..\.github\dependabot.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSite.14", "TestSite.14\TestSite.14.csproj", "{E043765D-AF26-4CA8-8D18-837C36BFA967}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSite", "TestSite\TestSite.csproj", "{E043765D-AF26-4CA8-8D18-837C36BFA967}"
 EndProject

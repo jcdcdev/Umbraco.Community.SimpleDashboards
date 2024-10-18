@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Umbraco.Community.SimpleDashboards.Web;
 
-namespace TestSite.Fourteen.ViewComponents.Dashboards;
+namespace TestSite.ViewComponents.Dashboards;
 
 public class ExampleDashboardViewComponent : DashboardViewComponent
 {
