@@ -8,18 +8,4 @@ export type GetUmbracoSimpledashboardsApiV1RenderByDashboardData = {
     dashboard: string;
 };
 
-export type GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse = SimpleDashboardRenderModel;
-
-export type $OpenApiTs = {
-    '/umbraco/simpledashboards/api/v1/render/{dashboard}': {
-        get: {
-            req: GetUmbracoSimpledashboardsApiV1RenderByDashboardData;
-            res: {
-                /**
-                 * OK
-                 */
-                200: SimpleDashboardRenderModel;
-            };
-        };
-    };
-};
+export type GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse = ((SimpleDashboardRenderModel));

@@ -1,6 +1,4 @@
-﻿import {ManifestLocalization} from "@umbraco-cms/backoffice/extension-registry";
-
-export const ManifestLocalizations: Array<ManifestLocalization> = [
+﻿export const ManifestLocalizations: Array<UmbExtensionManifest> = [
     {
         type: 'localization',
         alias: 'simple-dashboards.lang.enus',
