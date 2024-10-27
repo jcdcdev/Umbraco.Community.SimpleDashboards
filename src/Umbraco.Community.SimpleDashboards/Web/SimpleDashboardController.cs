@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Mvc.ViewFeatures.Buffers;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Umbraco.Cms.Api.Common.Attributes;
 using Umbraco.Cms.Api.Common.Filters;
 using Umbraco.Cms.Api.Management.Filters;
 using Umbraco.Cms.Core.Cache;
+using Umbraco.Cms.Web.Common.Authorization;
 using Umbraco.Community.SimpleDashboards.Core;
 using Umbraco.Extensions;
-using Microsoft.Extensions.DependencyInjection;
-using Umbraco.Cms.Web.Common.Authorization;
 
 namespace Umbraco.Community.SimpleDashboards.Web;
 

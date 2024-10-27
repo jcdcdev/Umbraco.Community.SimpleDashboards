@@ -1,6 +1,5 @@
 ﻿using Humanizer;
 using Umbraco.Community.SimpleDashboards.Core.Models;
-using Umbraco.Extensions;
 
 namespace Umbraco.Community.SimpleDashboards.Web;
 

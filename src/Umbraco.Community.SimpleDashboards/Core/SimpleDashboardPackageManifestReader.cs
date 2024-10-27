@@ -25,7 +25,7 @@ public class SimpleDashboardPackageManifestReader(ISimpleDashboardService simple
             Extensions = []
         };
 
-        extensions.Add(new EntryPointManifest
+        extensions.Add(new BackofficeEntryPointManifest
         {
             Name = "simple-dashboards.entrypoint",
             Alias = "simple-dashboards.entrypoint",
