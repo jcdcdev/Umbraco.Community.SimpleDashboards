@@ -10,7 +10,7 @@
 		"generate": "openapi-ts"
 	},
 	"dependencies": {
-		"lit": "^3.2.0"
+		"lit": "^3.2.1"
 	},
 	"devDependencies": {
 		"@hey-api/openapi-ts": "^0.46.3",
