@@ -23,11 +23,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Umbraco.Cms.Api.Common" Version="15.0.0-rc2"/>
-        <PackageReference Include="Umbraco.Cms.Api.Management" Version="15.0.0-rc2"/>
-        <PackageReference Include="Umbraco.Cms.Core" Version="15.0.0-rc2"/>
-        <PackageReference Include="Umbraco.Cms.Web.Website" Version="15.0.0-rc2"/>
-        <PackageReference Include="jcdcdev.Umbraco.Core" Version="15.0.0-alpha0005"/>
+        <PackageReference Include="Umbraco.Cms.Api.Common" Version="15.0.0-rc3" />
+        <PackageReference Include="Umbraco.Cms.Api.Management" Version="15.0.0-rc3" />
+        <PackageReference Include="Umbraco.Cms.Core" Version="15.0.0-rc3" />
+        <PackageReference Include="Umbraco.Cms.Web.Website" Version="15.0.0-rc3" />
+        <PackageReference Include="jcdcdev.Umbraco.Core" Version="15.0.0-alpha0007" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
