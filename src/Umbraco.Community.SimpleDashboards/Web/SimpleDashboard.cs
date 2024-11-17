@@ -9,7 +9,7 @@ public abstract class SimpleDashboard : ISimpleDashboard
     public virtual string ViewPath => $"~/Views/Dashboards/{Alias}.cshtml";
     public virtual string ViewComponent => $"{Alias}Dashboard";
     public virtual string Label => Name;
-    public string Alias => GetType().Name.TrimEndExact("Dashboard");
+    public string Alias => GetType().Name.TrimEnd("Dashboard");
     public string PathName => Alias.Kebaberize();
     public virtual int Weight => 100;
     public virtual string Name => Alias;

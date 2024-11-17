@@ -1,6 +1,6 @@
 using Umbraco.Community.SimpleDashboards.Web;
 
-namespace TestSite.Dashboards;
+namespace Umbraco.Community.SimpleDashboards.TestSite.Dashboards;
 
 public class FrameExampleDashboard : SimpleDashboard
 {
