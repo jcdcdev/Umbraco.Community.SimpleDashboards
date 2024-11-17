@@ -11,10 +11,12 @@ import type { GetUmbracoSimpledashboardsApiV1RenderByDashboardData, GetUmbracoSi
  * @returns unknown OK
  * @throws ApiError
  */
-export const getUmbracoSimpledashboardsApiV1RenderByDashboard = (data: GetUmbracoSimpledashboardsApiV1RenderByDashboardData): CancelablePromise<GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse> => { return __request(OpenAPI, {
-    method: 'GET',
-    url: '/umbraco/simpledashboards/api/v1/render/{dashboard}',
-    path: {
-        dashboard: data.dashboard
-    }
-}); };
+export const getUmbracoSimpledashboardsApiV1RenderByDashboard = (data: GetUmbracoSimpledashboardsApiV1RenderByDashboardData): CancelablePromise<GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse> => {
+    return __request(OpenAPI, {
+        method: 'GET',
+        url: '/umbraco/simpledashboards/api/v1/render/{dashboard}',
+        path: {
+            dashboard: data.dashboard
+        }
+    });
+};
