@@ -17,9 +17,10 @@ public static class Constants
     <h1>Dashboard Not Found</h1>
 </div>";
 
-    private static readonly string NameSpace = Assembly.GetEntryAssembly()?.GetName()?.Name ?? "YourNamespace";
     public const string PackageName = "Simple Dashboards";
     public const string ErrorViewPath = "~/Views/Dashboards/ViewNotFound.cshtml";
+
+    private static readonly string NameSpace = Assembly.GetEntryAssembly()?.GetName()?.Name ?? "YourNamespace";
 
     public static string ExampleViewComponent(string name) =>
         $@"using Microsoft.AspNetCore.Mvc;

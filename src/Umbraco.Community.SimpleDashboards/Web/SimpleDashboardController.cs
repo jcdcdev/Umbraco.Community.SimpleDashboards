@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Mvc.ViewFeatures.Buffers;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Umbraco.Cms.Api.Common.Attributes;
 using Umbraco.Cms.Api.Common.Filters;
 using Umbraco.Cms.Api.Management.Filters;
 using Umbraco.Cms.Core.Cache;
+using Umbraco.Cms.Web.Common.Authorization;
 using Umbraco.Community.SimpleDashboards.Core;
 using Umbraco.Extensions;
-using Microsoft.Extensions.DependencyInjection;
-using Umbraco.Cms.Web.Common.Authorization;
 
 namespace Umbraco.Community.SimpleDashboards.Web;
 
@@ -99,12 +99,23 @@ public class SimpleDashboardController(
 
     private async Task<SimpleDashboardRenderModel> RenderAsync(ViewEngineResult result, object? model)
     {
+        if (result.View == null)
+        {
+            return SimpleDashboardRenderModel.Error;
+        }
+
         var writer = new StringWriter();
-        var viewContext = new ViewContext(new ActionContext(HttpContext, RouteData, ControllerContext.ActionDescriptor, ModelState), result.View, ViewData, TempData, writer, new HtmlHelperOptions());
-        viewContext.ViewData.Model = model;
+        var viewContext = new ViewContext(new ActionContext(HttpContext, RouteData, ControllerContext.ActionDescriptor, ModelState), result.View, ViewData, TempData, writer, new HtmlHelperOptions())
+        {
+            ViewData =
+            {
+                Model = model
+            }
+        };
+
         await result.View.RenderAsync(viewContext);
         var body = writer.ToString();
-        return new SimpleDashboardRenderModel()
+        return new SimpleDashboardRenderModel
         {
             Body = body
         };
