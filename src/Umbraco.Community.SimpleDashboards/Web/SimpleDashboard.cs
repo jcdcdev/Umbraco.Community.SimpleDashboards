@@ -1,4 +1,5 @@
 ﻿using Humanizer;
+using jcdcdev.Umbraco.Core;
 using jcdcdev.Umbraco.Core.Web.Models.Manifests;
 using Umbraco.Community.SimpleDashboards.Core.Models;
 using Umbraco.Extensions;
@@ -15,7 +16,8 @@ public abstract class SimpleDashboard : ISimpleDashboard
     public virtual IConditionManifest[] Conditions => BuildConditions().ToArray();
     public virtual int Weight => 100;
     public virtual string Name => Alias;
-    public virtual string[] Sections => ["Umb.Section.Content"];
+    public virtual string[] Sections => [Constants.Sections.Content];
+
     public bool HasAlias(string alias)
     {
         if (alias.InvariantEquals(Alias))
@@ -40,6 +42,7 @@ public abstract class SimpleDashboard : ISimpleDashboard
         return conditions;
     }
 }
+
 public static class SimpleWorkspaceViewExtensions
 {
     public static string UniqueAlias(this ISimpleDashboard dashboard, string section)
