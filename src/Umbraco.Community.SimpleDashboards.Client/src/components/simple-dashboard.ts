@@ -19,7 +19,6 @@ export class SimpleDashboard extends UmbElementMixin(LitElement) {
     constructor() {
         super();
         this.consumeContext(SIMPLE_DASHBOARDS_CONTEXT_TOKEN, async (context) => {
-            debugger
             // @ts-ignore
             const manifest = this.manifest as ManifestDashboard;
             this.dashboardAlias = manifest.alias;
