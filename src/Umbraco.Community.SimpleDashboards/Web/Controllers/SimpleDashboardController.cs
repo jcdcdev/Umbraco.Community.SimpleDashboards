@@ -14,9 +14,10 @@ using Umbraco.Cms.Api.Management.Filters;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Web.Common.Authorization;
 using Umbraco.Community.SimpleDashboards.Core;
+using Umbraco.Community.SimpleDashboards.Web.Models;
 using Umbraco.Extensions;
 
-namespace Umbraco.Community.SimpleDashboards.Web;
+namespace Umbraco.Community.SimpleDashboards.Web.Controllers;
 
 [ApiExplorerSettings(GroupName = "Simple Dashboards")]
 [SimpleDashboardsVersionedRoute("")]
@@ -41,15 +42,15 @@ public class SimpleDashboardController(
     [Produces<SimpleDashboardRenderModel>]
     public async Task<IActionResult> Render(string dashboard)
     {
-        var dash = service.GetByPath(dashboard);
-        if (dash == null)
+        var simpleDashboard = service.GetByAlias(dashboard);
+        if (simpleDashboard == null)
         {
             _logger.LogWarning("Failed to find Dashboard {DashboardAlias}", dashboard);
             return Ok(SimpleDashboardRenderModel.Error);
         }
 
-        var model = new DashboardModel(dash);
-        var path = $"~/Views/Dashboards/{model.Dashboard.Alias}.cshtml";
+        var model = new DashboardViewModel(simpleDashboard);
+        var path = simpleDashboard.ViewPath;
         var result = viewEngine.GetView(null, path, false);
         if (result.Success)
         {
@@ -57,7 +58,7 @@ public class SimpleDashboardController(
             return Ok(body);
         }
 
-        var viewComponentName = dash.ViewComponent;
+        var viewComponentName = simpleDashboard.ViewComponent;
         if (ViewComponentExists(viewComponentName))
         {
             var body = await RenderAsync(viewComponentName, model);
@@ -67,14 +68,14 @@ public class SimpleDashboardController(
         return await ReturnError(model);
     }
 
-    private async Task<IActionResult> ReturnError(DashboardModel model)
+    private async Task<IActionResult> ReturnError(DashboardViewModel viewModel)
     {
         var result = viewEngine.GetView(null, Constants.ErrorViewPath, false);
-        var body = await RenderAsync(result, model);
+        var body = await RenderAsync(result, viewModel);
         return Ok(body);
     }
 
-    private async Task<SimpleDashboardRenderModel> RenderAsync(string viewComponentName, DashboardModel model)
+    private async Task<SimpleDashboardRenderModel> RenderAsync(string viewComponentName, DashboardViewModel viewModel)
     {
         var sp = HttpContext.RequestServices;
 
@@ -87,7 +88,7 @@ public class SimpleDashboardController(
         await using var writer = new StringWriter();
         var context = new ViewContext(ControllerContext, NullView.Instance, ViewData, TempData, writer, new HtmlHelperOptions());
         helper.Contextualize(context);
-        var vcResult = await helper.InvokeAsync(viewComponentName, new { Model = model });
+        var vcResult = await helper.InvokeAsync(viewComponentName, new { Model = viewModel });
         vcResult.WriteTo(writer, HtmlEncoder.Default);
         await writer.FlushAsync();
         var body = writer.ToString();

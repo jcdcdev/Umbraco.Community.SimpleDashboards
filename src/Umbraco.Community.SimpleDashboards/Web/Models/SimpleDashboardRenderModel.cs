@@ -1,6 +1,6 @@
 ﻿using Umbraco.Community.SimpleDashboards.Core;
 
-namespace Umbraco.Community.SimpleDashboards.Web;
+namespace Umbraco.Community.SimpleDashboards.Web.Models;
 
 public class SimpleDashboardRenderModel
 {

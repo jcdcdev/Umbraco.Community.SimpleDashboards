@@ -30,7 +30,7 @@ namespace {NameSpace}.Views.Components;
 
 public class {name}ViewComponent : DashboardViewComponent
 {{
-    public override IViewComponentResult Invoke(DashboardModel model)
+    public override IViewComponentResult Invoke(DashboardViewModel model)
     {{
         return Content($""Hello {{model.Dashboard.Alias}}"");
     }}
