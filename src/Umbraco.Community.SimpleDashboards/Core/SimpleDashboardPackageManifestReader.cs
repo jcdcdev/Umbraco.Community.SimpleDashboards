@@ -2,6 +2,7 @@
 using jcdcdev.Umbraco.Core.Web.Models.Manifests;
 using Umbraco.Cms.Core.Manifest;
 using Umbraco.Cms.Infrastructure.Manifest;
+using Umbraco.Community.SimpleDashboards.Web;
 
 namespace Umbraco.Community.SimpleDashboards.Core;
 
@@ -36,12 +37,10 @@ public class SimpleDashboardPackageManifestReader(ISimpleDashboardService simple
         {
             foreach (var section in dashboard.Sections)
             {
-                var uniqueAlias = $"{dashboard.Alias}-{section}";
-                var uniqueName = $"{dashboard.Name} ({section})";
                 var manifest = new DashboardManifest
                 {
-                    Alias = uniqueAlias,
-                    Name = uniqueName,
+                    Alias = dashboard.UniqueAlias(section),
+                    Name = dashboard.UniqueName(section),
                     ElementName = "simple-dashboard",
                     Weight = dashboard.Weight,
                     Meta = new DashboardManifest.MetaManifest
@@ -49,14 +48,7 @@ public class SimpleDashboardPackageManifestReader(ISimpleDashboardService simple
                         Label = dashboard.Label,
                         Pathname = dashboard.PathName
                     },
-                    Conditions =
-                    [
-                        new ConditionManifest
-                        {
-                            Alias = "Umb.Condition.SectionAlias",
-                            Match = section
-                        }
-                    ]
+                    Conditions = dashboard.Conditions.Any() ? dashboard.Conditions : [ConditionManifest.SectionAlias(section)]
                 };
                 extensions.Add(manifest);
             }

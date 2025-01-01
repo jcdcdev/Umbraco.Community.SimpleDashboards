@@ -4,6 +4,7 @@ import {UmbElementMixin} from "@umbraco-cms/backoffice/element-api";
 import {UUITextStyles} from "@umbraco-cms/backoffice/external/uui";
 import {SIMPLE_DASHBOARDS_CONTEXT_TOKEN} from "../context/simple-dashboards.context";
 import {unsafeHTML} from 'lit/directives/unsafe-html.js';
+import {ManifestDashboard} from "@umbraco-cms/backoffice/dashboard";
 
 @customElement('simple-dashboard')
 export class SimpleDashboard extends UmbElementMixin(LitElement) {
@@ -12,15 +13,16 @@ export class SimpleDashboard extends UmbElementMixin(LitElement) {
     content: string | undefined;
     @state()
     loading: boolean = true;
+    @state()
+    dashboardAlias?: string;
 
     constructor() {
         super();
-        const url = window.location.pathname;
-        const urlArray = url.split('/');
-        const lastSegment = urlArray[urlArray.length - 1];
-
         this.consumeContext(SIMPLE_DASHBOARDS_CONTEXT_TOKEN, async (context) => {
-            const response = await context.render(lastSegment);
+            // @ts-ignore
+            const manifest = this.manifest as ManifestDashboard;
+            this.dashboardAlias = manifest.alias;
+            const response = await context.render(this.dashboardAlias);
             this.loading = false;
             this.content = response.data?.body;
         });
@@ -38,7 +40,8 @@ export class SimpleDashboard extends UmbElementMixin(LitElement) {
         `
     }
 
-    static styles = [
+    static
+    styles = [
         UUITextStyles,
         css`
             :host {

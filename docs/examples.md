@@ -56,7 +56,7 @@ public class ExampleDashboard : SimpleDashboard
 ```csharp
 public class ExampleDashboardViewComponent : DashboardAsyncViewComponent
 {
-    public override Task<IViewComponentResult> InvokeAsync(DashboardModel model)
+    public override Task<IViewComponentResult> InvokeAsync(DashboardViewModel model)
     {
         // Complex business logic
         var viewModel = await _service.CreateViewModel(model);

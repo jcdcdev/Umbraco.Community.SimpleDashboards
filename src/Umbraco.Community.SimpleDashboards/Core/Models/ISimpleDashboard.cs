@@ -1,4 +1,6 @@
-﻿namespace Umbraco.Community.SimpleDashboards.Core.Models;
+﻿using jcdcdev.Umbraco.Core.Web.Models.Manifests;
+
+namespace Umbraco.Community.SimpleDashboards.Core.Models;
 
 public interface ISimpleDashboard
 {
@@ -10,4 +12,6 @@ public interface ISimpleDashboard
     string? Name { get; }
     string Label { get; }
     string PathName { get; }
+    IConditionManifest[] Conditions { get; }
+    bool HasAlias(string alias);
 }
