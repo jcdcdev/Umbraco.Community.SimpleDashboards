@@ -14,9 +14,9 @@
 	},
 	"devDependencies": {
 		"@hey-api/openapi-ts": "^0.60.1",
-		"@umbraco-cms/backoffice": "^15.1.1",
-		"typescript": "^5.7.2",
-		"vite": "^6.0.6"
+		"@umbraco-cms/backoffice": "^15.1.2",
+		"typescript": "^5.7.3",
+		"vite": "^6.0.9"
 	},
 	"volta": {
 		"node": "20.18.0"
