@@ -1,4 +1,5 @@
-﻿using jcdcdev.Umbraco.Core.Extensions;
+﻿using System.Reflection;
+using jcdcdev.Umbraco.Core.Extensions;
 using jcdcdev.Umbraco.Core.Web.Models.Manifests;
 using Umbraco.Cms.Core.Manifest;
 using Umbraco.Cms.Infrastructure.Manifest;
@@ -6,7 +7,7 @@ using Umbraco.Community.SimpleDashboards.Web;
 
 namespace Umbraco.Community.SimpleDashboards.Core;
 
-public class SimpleDashboardPackageManifestReader(ISimpleDashboardService simpleDashboardService) : IPackageManifestReader
+public class PackageManifestReader(ISimpleDashboardService simpleDashboardService) : IPackageManifestReader
 {
     public Task<IEnumerable<PackageManifest>> ReadPackageManifestsAsync()
     {
@@ -20,7 +21,7 @@ public class SimpleDashboardPackageManifestReader(ISimpleDashboardService simple
         var packageManifest = new PackageManifest
         {
             Name = Constants.PackageName,
-            Version = EnvironmentExtensions.CurrentAssemblyVersion().ToSemVer()?.ToString() ?? "0.1.0",
+            Version = Assembly.GetAssembly(typeof(PackageManifestReader))?.GetName().Version?.ToSemVer()?.ToString() ?? "0.1.0",
             AllowPublicAccess = false,
             AllowTelemetry = true,
             Extensions = []
