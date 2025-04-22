@@ -18,7 +18,7 @@ public static class UmbracoBuilderExtensions
 
         builder.Services.ConfigureOptions<ConfigApiSwaggerGenOptions>();
         builder.Services.AddSingleton<ISimpleDashboardService, SimpleDashboardService>();
-        builder.Services.AddSingleton<IPackageManifestReader, SimpleDashboardPackageManifestReader>();
+        builder.Services.AddSingleton<IPackageManifestReader, PackageManifestReader>();
     }
 
     private static SimpleDashboardCollectionBuilder SimpleDashboards(this IUmbracoBuilder builder) => builder.WithCollectionBuilder<SimpleDashboardCollectionBuilder>();
