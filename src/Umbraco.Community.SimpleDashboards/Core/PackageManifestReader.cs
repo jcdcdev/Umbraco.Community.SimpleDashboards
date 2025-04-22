@@ -1,25 +1,26 @@
-﻿using jcdcdev.Umbraco.Core.Extensions;
+﻿using System.Reflection;
+using jcdcdev.Umbraco.Core.Extensions;
 using jcdcdev.Umbraco.Core.Web.Models.Manifests;
 using Umbraco.Cms.Core.Manifest;
 using Umbraco.Cms.Infrastructure.Manifest;
 
 namespace Umbraco.Community.SimpleDashboards.Core;
 
-public class SimpleDashboardPackageManifestReader(ISimpleDashboardService simpleDashboardService) : IPackageManifestReader
+public class PackageManifestReader(ISimpleDashboardService simpleDashboardService) : IPackageManifestReader
 {
-    public async Task<IEnumerable<PackageManifest>> ReadPackageManifestsAsync()
+    public Task<IEnumerable<PackageManifest>> ReadPackageManifestsAsync()
     {
         var dashboards = simpleDashboardService.GetAll().ToList();
         if (!dashboards.Any())
         {
-            return Array.Empty<PackageManifest>();
+            return Task.FromResult<IEnumerable<PackageManifest>>(Array.Empty<PackageManifest>());
         }
 
         var extensions = new List<IManifest>();
         var packageManifest = new PackageManifest
         {
             Name = Constants.PackageName,
-            Version = EnvironmentExtensions.CurrentAssemblyVersion().ToSemVer()?.ToString() ?? "0.1.0",
+            Version = Assembly.GetAssembly(typeof(PackageManifestReader))?.GetName().Version?.ToSemVer()?.ToString() ?? "0.1.0",
             AllowPublicAccess = false,
             AllowTelemetry = true,
             Extensions = []
@@ -63,6 +64,6 @@ public class SimpleDashboardPackageManifestReader(ISimpleDashboardService simple
         }
 
         packageManifest.Extensions = extensions.OfType<object>().ToArray();
-        return new[] { packageManifest };
+        return Task.FromResult<IEnumerable<PackageManifest>>(new[] { packageManifest });
     }
 }

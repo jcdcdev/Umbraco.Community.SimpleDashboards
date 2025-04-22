@@ -10,15 +10,15 @@
 		"generate": "openapi-ts"
 	},
 	"dependencies": {
-		"lit": "^3.2.1"
+		"lit": "^3.3.0"
 	},
 	"devDependencies": {
-		"@hey-api/openapi-ts": "^0.46.3",
-		"@umbraco-cms/backoffice": "^14.0.0",
-		"typescript": "^5.0.2",
-		"vite": "^4.5.5"
+		"@hey-api/openapi-ts": "^0.66.5",
+		"@umbraco-cms/backoffice": "^14.3.3",
+		"typescript": "^5.8.3",
+		"vite": "^6.3.2"
 	},
 	"volta": {
-		"node": "20.15.0"
+		"node": "20.9.0"
 	}
 }
