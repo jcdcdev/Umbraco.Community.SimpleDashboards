@@ -16,6 +16,7 @@ public static class UmbracoBuilderExtensions
 {
     public static void AddSimpleDashboards(this IUmbracoBuilder builder)
     {
+        builder.SimpleDashboards();
         var types = builder.TypeLoader.GetTypes<ISimpleDashboard>();
         foreach (var type in types)
         {
