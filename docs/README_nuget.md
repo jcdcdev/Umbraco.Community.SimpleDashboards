@@ -1,40 +1,64 @@
-<!doctype html>
-<html lang="en" class="h-100">
+# Umbraco.Community.SimpleDashboards
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>404</title>
-</head>
+[![Documentation](https://img.shields.io/badge/Docs-Quickstart-394933?style=flat&logo=github)](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards#quick-start)
+[![Umbraco Marketplace](https://img.shields.io/badge/Umbraco-Marketplace-%233544B1?style=flat&logo=umbraco)](https://marketplace.umbraco.com/package/Umbraco.Community.SimpleDashboards)
+[![License](https://img.shields.io/github/license/jcdcdev/Umbraco.Community.SimpleDashboards?color=8AB803&label=License&logo=github)](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards?tab=MIT-1-ov-file)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.SimpleDashboards?color=cc9900&label=Downloads&logo=nuget)](https://www.nuget.org/packages/Umbraco.Community.SimpleDashboards)
+[![Project Website](https://img.shields.io/badge/Project%20Website-jcdc.dev-jcdcdev?style=flat&color=3c4834&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0id2hpdGUiIGNsYXNzPSJiaSBiaS1wYy1kaXNwbGF5IiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik04IDFhMSAxIDAgMCAxIDEtMWg2YTEgMSAwIDAgMSAxIDF2MTRhMSAxIDAgMCAxLTEgMUg5YTEgMSAwIDAgMS0xLTF6bTEgMTMuNWEuNS41IDAgMSAwIDEgMCAuNS41IDAgMCAwLTEgMG0yIDBhLjUuNSAwIDEgMCAxIDAgLjUuNSAwIDAgMC0xIDBNOS41IDFhLjUuNSAwIDAgMCAwIDFoNWEuNS41IDAgMCAwIDAtMXpNOSAzLjVhLjUuNSAwIDAgMCAuNS41aDVhLjUuNSAwIDAgMCAwLTFoLTVhLjUuNSAwIDAgMC0uNS41TTEuNSAyQTEuNSAxLjUgMCAwIDAgMCAzLjV2N0ExLjUgMS41IDAgMCAwIDEuNSAxMkg2djJoLS41YS41LjUgMCAwIDAgMCAxSDd2LTRIMS41YS41LjUgMCAwIDEtLjUtLjV2LTdhLjUuNSAwIDAgMSAuNS0uNUg3VjJ6Ii8+Cjwvc3ZnPg==)](https://jcdc.dev/umbraco-packages/simple-dashboards)
 
-<body class="h-100">
-    <div class="d-flex align-items-center justify-content-center h-100">
-        <div class="">
-            <h1>404 Not Found</h1>
-            <p> Sorry, the page you are looking for could not be found.</p>
-        </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" type="306da4609f8664a9373b9b83-text/javascript"></script>
-    <script type="306da4609f8664a9373b9b83-text/javascript">
-        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+This packages aims to help developers quickly put together Umbraco Dashboards using C#.
 
-        if (darkModeMediaQuery.matches) {
-            document.documentElement.setAttribute('data-bs-theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-bs-theme', 'light');
-        }
+## Features
 
-        darkModeMediaQuery.addEventListener('change', (event) => {
-            if (event.matches) {
-                document.documentElement.setAttribute('data-bs-theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-bs-theme', 'light');
-            }
-        });
-    </script>
-<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="306da4609f8664a9373b9b83-|49" defer></script></body>
+- C# dashboard creation
+- No javascript or umbraco-package.json files required
+- Supports both Views & View Components
+- Easy to define section permissions
 
-</html>
+## Quick Start
+
+### Install Package
+
+```csharp
+dotnet add package Umbraco.Community.SimpleDashboards 
+```
+
+### Register Dashboard
+
+By default, this will display in the content section for Admins only.
+
+```csharp title="BasicDashboard.cs"
+using Umbraco.Community.SimpleDashboards.Web; 
+public class BasicDashboard : SimpleDashboard { }
+```
+
+### Create View
+
+- Your view **must** go in `/Views/Dashboard`
+- You view **must** be the name of your C# class (without `Dashboard`)
+    - For example: `BasicDashboard.cs` => `/Views/Dashboard/Basic.cshtml`
+
+```csharp title="Views/Dashboard/Basic.cshtml"
+@inherits Umbraco.Community.SimpleDashboards.Web.DashboardViewPage
+
+<uui-box headline="Hello Umbraco">
+    <p>My Dashboard is: @Model.Dashboard.Alias</p>
+</uui-box>
+```
+
+### More Examples
+
+[docs/examples.md](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/v15/docs/examples.md)
+
+
+## Contributing
+
+Contributions to this package are most welcome! Please visit the [Contributing](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/contribute) page.
+
+## Acknowledgements (Thanks)
+
+- LottePitcher - [opinionated-package-starter](https://github.com/LottePitcher/opinionated-package-starter)
+
+
+
