@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Umbraco.Cms" Version="15.3.1" />
-        <PackageReference Include="uSync" Version="15.1.6"/>
+        <PackageReference Include="Umbraco.Cms" Version="16.0.0-rc" />
+        <PackageReference Include="uSync" Version="16.0.0-beta01"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -18,6 +18,69 @@
         <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
         <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3"/>
         <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="uSync\v15\ContentTypes\basepage.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\ContentTypes\home.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\ContentTypes\markdownblock.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\ContentTypes\umbblockgriddemoheadlineblock.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\ContentTypes\umbblockgriddemoimageblock.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\ContentTypes\umbblockgriddemorichtextblock.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\ContentTypes\umbblockgriddemotwocolumnlayoutblock.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\Content\home.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\ApprovedColor.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\BasePageGridContentBlockGrid.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\CheckboxList.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\ContentPicker.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\DatePicker.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\DatePickerWithTime.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\Dropdown.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\DropdownMultiple.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\ImageCropper.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\ImageMediaPicker.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\LabelBigint.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\LabelDatetime.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\LabelDecimal.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\LabelInteger.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\LabelString.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\LabelTime.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\ListViewContent.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\ListViewMedia.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\ListViewMembers.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\MarkdownBlockMarkdownMarkdownEditorPropertyEditorUI.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\MediaPicker.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\MemberPicker.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\MultipleImageMediaPicker.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\MultipleMediaPicker.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\MultiURLPicker.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\Numeric.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\Radiobox.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\RichtextEditor.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\Tags.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\Textarea.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\Textstring.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\Truefalse.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\UploadArticle.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\UploadAudio.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\UploadFile.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\UploadVectorGraphics.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\DataTypes\UploadVideo.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\Domains\se_sv.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\Domains\_en-gb.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\Languages\en-gb.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\Languages\en-us.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\Languages\sv.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\MediaTypes\file.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\MediaTypes\folder.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\MediaTypes\image.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\MediaTypes\umbracomediaarticle.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\MediaTypes\umbracomediaaudio.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\MediaTypes\umbracomediavectorgraphics.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\MediaTypes\umbracomediavideo.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\Media\icon.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\MemberTypes\member.config" />
+      <_ContentIncludedByDefault Remove="uSync\v15\Templates\home.config" />
     </ItemGroup>
 
     <PropertyGroup>

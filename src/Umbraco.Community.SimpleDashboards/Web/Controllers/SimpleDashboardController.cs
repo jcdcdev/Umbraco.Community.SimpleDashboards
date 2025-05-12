@@ -19,7 +19,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Community.SimpleDashboards.Web.Controllers;
 
-[ApiExplorerSettings(GroupName = "Simple Dashboards")]
+[ApiExplorerSettings(GroupName = Constants.Api.GroupName)]
 [SimpleDashboardsVersionedRoute("")]
 [MapToApi(Constants.Api.ApiName)]
 [JsonOptionsName(Cms.Core.Constants.JsonOptionsNames.BackOffice)]

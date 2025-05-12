@@ -1,14 +1,13 @@
 ﻿import {UmbDataSourceResponse} from "@umbraco-cms/backoffice/repository";
-import {getUmbracoSimpledashboardsApiV1RenderByDashboard, GetUmbracoSimpledashboardsApiV1RenderByDashboardData, GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse} from "../api";
+import {GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse, SimpleDashboardsService} from "../api";
 import {UmbControllerHost} from "@umbraco-cms/backoffice/controller-api";
-import {tryExecuteAndNotify} from "@umbraco-cms/backoffice/resources";
+import {tryExecute} from "@umbraco-cms/backoffice/resources";
 
 export interface ISimpleDashboardsDataSource {
     render(alias: string): Promise<UmbDataSourceResponse<GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse>>;
 }
 
 export class SimpleDashboardsDataSource implements ISimpleDashboardsDataSource {
-
     #host: UmbControllerHost;
 
     constructor(host: UmbControllerHost) {
@@ -16,9 +15,11 @@ export class SimpleDashboardsDataSource implements ISimpleDashboardsDataSource {
     }
 
     async render(alias: string): Promise<UmbDataSourceResponse<GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse>> {
-        const data: GetUmbracoSimpledashboardsApiV1RenderByDashboardData = {
-            dashboard: alias,
+        const options = {
+            path: {
+                dashboard: alias,
+            },
         };
-        return await tryExecuteAndNotify(this.#host, getUmbracoSimpledashboardsApiV1RenderByDashboard(data))
+        return await tryExecute(this.#host, SimpleDashboardsService.getUmbracoSimpledashboardsApiV1RenderByDashboard(options))
     }
 }
