@@ -1,21 +1,24 @@
 # Umbraco.Community.SimpleDashboards
 
-[![Umbraco Marketplace](https://img.shields.io/badge/Umbraco-Marketplace-%233544B1?style=flat&logo=umbraco)](https://marketplace.umbraco.com/package/umbraco.community.simpledashboards)
-[![GitHub License](https://img.shields.io/github/license/jcdcdev/Umbraco.Community.SimpleDashboards?color=8AB803&label=License&logo=github)](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/main/LICENSE)
-[![NuGet Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.SimpleDashboards?color=cc9900&label=Downloads&logo=nuget)](https://www.nuget.org/packages/Umbraco.Community.SimpleDashboards/)
+[![Umbraco Marketplace](https://img.shields.io/badge/Umbraco-Marketplace-%233544B1?style=flat&logo=umbraco)](https://marketplace.umbraco.com/package/Umbraco.Community.SimpleDashboards)
+[![License](https://img.shields.io/github/license/jcdcdev/Umbraco.Community.SimpleDashboards?color=8AB803&label=License&logo=github)](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards?tab=MIT-1-ov-file)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.SimpleDashboards?color=cc9900&label=Downloads&logo=nuget)](https://www.nuget.org/packages/Umbraco.Community.SimpleDashboards)
+[![Project Website](https://img.shields.io/badge/Project%20Website-jcdc.dev-jcdcdev?style=flat&color=3c4834&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0id2hpdGUiIGNsYXNzPSJiaSBiaS1wYy1kaXNwbGF5IiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik04IDFhMSAxIDAgMCAxIDEtMWg2YTEgMSAwIDAgMSAxIDF2MTRhMSAxIDAgMCAxLTEgMUg5YTEgMSAwIDAgMS0xLTF6bTEgMTMuNWEuNS41IDAgMSAwIDEgMCAuNS41IDAgMCAwLTEgMG0yIDBhLjUuNSAwIDEgMCAxIDAgLjUuNSAwIDAgMC0xIDBNOS41IDFhLjUuNSAwIDAgMCAwIDFoNWEuNS41IDAgMCAwIDAtMXpNOSAzLjVhLjUuNSAwIDAgMCAuNS41aDVhLjUuNSAwIDAgMCAwLTFoLTVhLjUuNSAwIDAgMC0uNS41TTEuNSAyQTEuNSAxLjUgMCAwIDAgMCAzLjV2N0ExLjUgMS41IDAgMCAwIDEuNSAxMkg2djJoLS41YS41LjUgMCAwIDAgMCAxSDd2LTRIMS41YS41LjUgMCAwIDEtLjUtLjV2LTdhLjUuNSAwIDAgMSAuNS0uNUg3VjJ6Ii8+Cjwvc3ZnPg==)](https://jcdc.dev/umbraco-packages/simple-dashboards)
 
 
-This packages aims to help developers quickly put together Umbraco Dashboards using C# only.
-
-![Basic Dashboard in the Umbraco Office](https://raw.githubusercontent.com/jcdcdev/Umbraco.Community.SimpleDashboards/main/docs/screenshot.png)
+This packages aims to help developers quickly put together Umbraco Dashboards using C#.
 
 ## Features
 
-- Simplifies C# based dashboard creation
+- C# dashboard creation
+- No javascript or umbraco-package.json files required
 - Supports both Views & View Components
-- No package.manifest or lang/lang.xml files required!
-- Variant support (culture specific names)
-- Easy to define Access Rules
+- Easy to define section permissions
+
+> [!IMPORTANT]
+> Version 10 will only receive security updates and no new features.
+
+> Please review the [security policy](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards?tab=security-ov-file#supported-versions) for more information.
 
 ## Quick Start
 
@@ -27,10 +30,10 @@ dotnet add package Umbraco.Community.SimpleDashboards
 
 ### Register Dashboard
 
-By default this will display in the content section for Admins only.
+By default, this will display in the content section for Admins only.
 
-```csharp
-using Umbraco.Community.SimpleDashboards.Core; 
+```csharp title="BasicDashboard.cs"
+using Umbraco.Community.SimpleDashboards.Web; 
 public class BasicDashboard : SimpleDashboard { }
 ```
 
@@ -40,21 +43,27 @@ public class BasicDashboard : SimpleDashboard { }
 - You view **must** be the name of your C# class (without `Dashboard`)
     - For example: `BasicDashboard.cs` => `/Views/Dashboard/Basic.cshtml`
 
-```csharp
+```csharp title="Views/Dashboard/Basic.cshtml"
 @inherits Umbraco.Community.SimpleDashboards.Web.DashboardViewPage
 
-<h1>Hello Umbraco</h1>
-<p>My Dashboard alias is: @Model.Dashboard.Alias</p>
+<uui-box headline="Hello Umbraco">
+    <p>My Dashboard is: @Model.Dashboard.Alias</p>
+</uui-box>
 ```
 
 ### More Examples
 
-[docs/examples.md](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/dev/docs/examples.md)
+[docs/examples.md](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/v15/docs/examples.md)
+
+
 
 ## Contributing
 
-Contributions to this package are most welcome! Please read the [Contributing Guidelines](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/main/.github/CONTRIBUTING.md).
+Contributions to this package are most welcome! Please visit the [Contributing](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/contribute) page.
 
-## Acknowledgments (thanks!)
+## Acknowledgements (Thanks)
 
 - LottePitcher - [opinionated-package-starter](https://github.com/LottePitcher/opinionated-package-starter)
+
+
+
