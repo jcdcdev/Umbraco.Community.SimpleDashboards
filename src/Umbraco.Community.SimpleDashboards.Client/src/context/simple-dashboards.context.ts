@@ -5,8 +5,7 @@ import {UmbDataSourceResponse} from "@umbraco-cms/backoffice/repository";
 import {GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse} from "../api";
 import {SimpleDashboardsRepository} from "../repository/simple-dashboards.repository";
 
-export const SIMPLE_DASHBOARDS_CONTEXT_TOKEN =
-    new UmbContextToken<SimpleDashboardsContext>("SimpleDashboardsContext");
+export const SIMPLE_DASHBOARDS_CONTEXT_TOKEN = new UmbContextToken<SimpleDashboardsContext>("SimpleDashboardsContext");
 
 export class SimpleDashboardsContext extends UmbControllerBase {
     #repository: SimpleDashboardsRepository;

@@ -5,7 +5,23 @@ export type SimpleDashboardRenderModel = {
 };
 
 export type GetUmbracoSimpledashboardsApiV1RenderByDashboardData = {
-    dashboard: string;
+    body?: never;
+    path: {
+        dashboard: string;
+    };
+    query?: never;
+    url: '/umbraco/simpledashboards/api/v1/render/{dashboard}';
 };
 
-export type GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse = ((SimpleDashboardRenderModel));
+export type GetUmbracoSimpledashboardsApiV1RenderByDashboardResponses = {
+    /**
+     * OK
+     */
+    200: SimpleDashboardRenderModel;
+};
+
+export type GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse = GetUmbracoSimpledashboardsApiV1RenderByDashboardResponses[keyof GetUmbracoSimpledashboardsApiV1RenderByDashboardResponses];
+
+export type ClientOptions = {
+    baseUrl: 'http://localhost:54813' | (string & {});
+};

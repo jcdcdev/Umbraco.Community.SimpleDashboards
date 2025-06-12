@@ -13,6 +13,6 @@ jobs:
           project-path: src/Umbraco.Community.SimpleDashboards/Umbraco.Community.SimpleDashboards.csproj
           npm-working-dir: src/Umbraco.Community.SimpleDashboards.Client
           npm-enabled: true
-          umbraco-version: 15
+          umbraco-version: 16
           dotnet-version: "9"
           npm-version: "22.x"

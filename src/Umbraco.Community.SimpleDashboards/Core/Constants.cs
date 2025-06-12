@@ -17,7 +17,7 @@ public static class Constants
     <h1>Dashboard Not Found</h1>
 </div>";
 
-    public const string PackageName = "Simple Dashboards";
+    public const string PackageName = "Umbraco.Community.SimpleDashboards";
     public const string ErrorViewPath = "~/Views/Dashboards/ViewNotFound.cshtml";
 
     private static readonly string NameSpace = Assembly.GetEntryAssembly()?.GetName()?.Name ?? "YourNamespace";
@@ -39,5 +39,6 @@ public class {name}ViewComponent : DashboardViewComponent
     public class Api
     {
         public const string ApiName = "SimpleDashboards";
+        public const string GroupName = "Simple Dashboards";
     }
 }
