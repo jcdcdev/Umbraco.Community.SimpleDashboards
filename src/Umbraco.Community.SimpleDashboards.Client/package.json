@@ -10,13 +10,13 @@
 		"generate": "openapi-ts"
 	},
 	"dependencies": {
-		"lit": "^3.3.0"
+		"lit": "^3.3.1"
 	},
 	"devDependencies": {
-		"@hey-api/openapi-ts": "^0.69.1",
+		"@hey-api/openapi-ts": "^0.80.1",
 		"@umbraco-cms/backoffice": "^15.4.3",
 		"typescript": "^5.8.3",
-		"vite": "^6.3.5"
+		"vite": "^7.0.6"
 	},
 	"volta": {
 		"node": "22.14.0"
