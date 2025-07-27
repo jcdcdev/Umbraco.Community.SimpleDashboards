@@ -1,7 +1,7 @@
-﻿import {UmbDataSourceResponse} from "@umbraco-cms/backoffice/repository";
-import {GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse, SimpleDashboardsService} from "../api";
-import {UmbControllerHost} from "@umbraco-cms/backoffice/controller-api";
-import {tryExecute} from "@umbraco-cms/backoffice/resources";
+﻿import { UmbDataSourceResponse } from "@umbraco-cms/backoffice/repository";
+import { GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse, SimpleDashboards } from "../api";
+import { UmbControllerHost } from "@umbraco-cms/backoffice/controller-api";
+import { tryExecute } from "@umbraco-cms/backoffice/resources";
 
 export interface ISimpleDashboardsDataSource {
     render(alias: string): Promise<UmbDataSourceResponse<GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse>>;
@@ -20,6 +20,6 @@ export class SimpleDashboardsDataSource implements ISimpleDashboardsDataSource {
                 dashboard: alias,
             },
         };
-        return await tryExecute(this.#host, SimpleDashboardsService.getUmbracoSimpledashboardsApiV1RenderByDashboard(options))
+        return await tryExecute(this.#host, SimpleDashboards.getUmbracoSimpledashboardsApiV1RenderByDashboard(options))
     }
 }
