@@ -15,6 +15,11 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 - Supports both Views & View Components
 - Easy to define section permissions
 
+> [!IMPORTANT]
+> Version 15 will only receive security updates and no new features.
+
+> Please review the [security policy](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards?tab=security-ov-file#supported-versions) for more information.
+
 ## Quick Start
 
 ### Install Package
