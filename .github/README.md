@@ -15,47 +15,10 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 - Supports both Views & View Components
 - Easy to define section permissions
 
-> [!IMPORTANT]
-> Version 15 will only receive security updates and no new features.
+> [!WARNING]
+> Version 15 is no longer supported and is End of Life (EOL).
 
 > Please review the [security policy](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards?tab=security-ov-file#supported-versions) for more information.
-
-## Quick Start
-
-### Install Package
-
-```csharp
-dotnet add package Umbraco.Community.SimpleDashboards 
-```
-
-### Register Dashboard
-
-By default, this will display in the content section for Admins only.
-
-```csharp title="BasicDashboard.cs"
-using Umbraco.Community.SimpleDashboards.Web; 
-public class BasicDashboard : SimpleDashboard { }
-```
-
-### Create View
-
-- Your view **must** go in `/Views/Dashboard`
-- You view **must** be the name of your C# class (without `Dashboard`)
-    - For example: `BasicDashboard.cs` => `/Views/Dashboard/Basic.cshtml`
-
-```csharp title="Views/Dashboard/Basic.cshtml"
-@inherits Umbraco.Community.SimpleDashboards.Web.DashboardViewPage
-
-<uui-box headline="Hello Umbraco">
-    <p>My Dashboard is: @Model.Dashboard.Alias</p>
-</uui-box>
-```
-
-### More Examples
-
-[docs/examples.md](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/v15/docs/examples.md)
-
-
 
 ## Contributing
 
