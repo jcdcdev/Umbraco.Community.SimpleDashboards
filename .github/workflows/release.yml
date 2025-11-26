@@ -13,17 +13,15 @@ jobs:
     steps:
       - name: Build
         id: build
-        uses: jcdcdev/jcdcdev.Umbraco.GitHub.Build@main
+        uses: jcdcdev/jcdcdev.Umbraco.Github.Build@v17
         with:
           project-name: Umbraco.Community.SimpleDashboards
           project-path: src/Umbraco.Community.SimpleDashboards/Umbraco.Community.SimpleDashboards.csproj
           npm-working-dir: src/Umbraco.Community.SimpleDashboards.Client
           npm-enabled: true
-          umbraco-version: 17
-          dotnet-version: "10"
           npm-version: "22.x"
       - name: Release
-        uses: jcdcdev/jcdcdev.Umbraco.GitHub.Release@main
+        uses: jcdcdev/jcdcdev.Umbraco.GitHub.Release@v17
         with:
           artifact-name: ${{ steps.build.outputs.artifact-name }}
           version: ${{ steps.build.outputs.version }}
