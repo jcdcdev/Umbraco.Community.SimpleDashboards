@@ -15,6 +15,7 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 - Supports both Views & View Components
 - Easy to define section permissions
 
+
 ## Quick Start
 
 ### Install Package
