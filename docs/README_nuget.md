@@ -16,7 +16,6 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 - Supports both Views & View Components
 - Easy to define section permissions
 
-
 ## Quick Start
 
 ### Install Package
@@ -51,7 +50,6 @@ public class BasicDashboard : SimpleDashboard { }
 ### More Examples
 
 [docs/examples.md](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/v15/docs/examples.md)
-
 
 ## Contributing
 
