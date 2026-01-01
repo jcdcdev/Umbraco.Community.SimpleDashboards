@@ -20,7 +20,6 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 
 > Please review the [security policy](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards?tab=security-ov-file#supported-versions) for more information.
 
-
 ## Quick Start
 
 ### Install Package
@@ -55,8 +54,6 @@ public class BasicDashboard : SimpleDashboard { }
 ### More Examples
 
 [docs/examples.md](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/blob/v15/docs/examples.md)
-
-
 
 ## Contributing
 
