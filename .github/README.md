@@ -24,7 +24,7 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 
 ### Install Package
 
-```csharp
+```powershell
 dotnet add package Umbraco.Community.SimpleDashboards 
 ```
 
