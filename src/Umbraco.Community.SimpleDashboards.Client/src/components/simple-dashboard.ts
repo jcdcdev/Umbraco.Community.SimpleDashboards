@@ -5,6 +5,7 @@ import {UUITextStyles} from "@umbraco-cms/backoffice/external/uui";
 import {SIMPLE_DASHBOARDS_CONTEXT_TOKEN} from "../context/simple-dashboards.context";
 import {unsafeHTML} from 'lit/directives/unsafe-html.js';
 import {ManifestDashboard} from "@umbraco-cms/backoffice/dashboard";
+import {HtmlScriptContentRuntime} from "../utils/html-script-content-runtime.ts";
 
 @customElement('simple-dashboard')
 export class SimpleDashboard extends UmbElementMixin(LitElement) {
@@ -15,6 +16,8 @@ export class SimpleDashboard extends UmbElementMixin(LitElement) {
     loading: boolean = true;
     @state()
     dashboardAlias?: string;
+
+    private readonly runtime = new HtmlScriptContentRuntime();
 
     constructor() {
         super();
@@ -32,20 +35,24 @@ export class SimpleDashboard extends UmbElementMixin(LitElement) {
         });
     }
 
+    protected updated(): void {
+        void this.runtime.executeScripts(this.content, this.renderRoot);
+    }
+
     render() {
         if (this.loading) {
             return nothing;
         }
 
+        const body = this.runtime.extractHtml(this.content);
         return html`
             <div class="uui-text">
-                ${this.content ? unsafeHTML(this.content) : html`<p>Dashboard not found</p>`}
+                ${body ? unsafeHTML(body) : html`<p>Dashboard not found</p>`}
             </div>
-        `
+        `;
     }
 
-    static
-    styles = [
+    static styles = [
         UUITextStyles,
         css`
             :host {
