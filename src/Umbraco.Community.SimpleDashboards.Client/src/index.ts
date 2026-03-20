@@ -1,6 +1,6 @@
 import {UMB_AUTH_CONTEXT} from "@umbraco-cms/backoffice/auth";
 import {client} from './api';
-import {UmbEntryPointOnInit} from "@umbraco-cms/backoffice/extension-api";
+import type {UmbEntryPointOnInit} from "@umbraco-cms/backoffice/extension-api";
 import './components/simple-dashboard.ts';
 import {SimpleDashboardsContext} from "./context/simple-dashboards.context.ts";
 import {ManifestLocalizations} from "./lang/manifests.ts";
