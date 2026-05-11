@@ -1,4 +1,4 @@
-# SimpleDashboards v13 → v17 Migration cheat‑sheet
+# v13 → v17 Guide
 
 ## Checklist
 
@@ -13,7 +13,7 @@
 | v13 (legacy / constructor)                                   | v17 (manifest / property)                                                                                                      |
 |--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | `SetName("Title");`                                          | `public override string Name => "Title";`                                                                                      |
-| `SetName("Title","en-GB");`                                  | ⚠️ [TOOD - Issue #211](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/issues/211)                               |
+| `SetName("Title","en-GB");`                                  | ⚠️ [TODO - Issue #211](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/issues/211)                               |
 | `AddSection(Constants.Applications.Media);`                  | `public override string[] Sections => new[] { Constants.Applications.Media };`                                                 |
 | `AddAccessRule(SimpleAccessRule.AllowAdminGroup);`           | `Conditions` with `ConditionManifest.Create("Umb.Condition.CurrentUser.GroupId", Constants.Security.AdminGroupKey.ToString())` |
 | `Allow(x => x.UserGroup("myGroup"));`                        | Add `ConditionManifest` using the group's GUID/key (or resolve alias→GUID at startup)                                          |
