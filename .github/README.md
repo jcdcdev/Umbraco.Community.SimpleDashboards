@@ -1,6 +1,6 @@
 # Simple Dashboards
 
-[![Documentation](https://jcdc.dev/badge/Documentation/primary/book)](#https://docs.jcdc.dev/umbraco-community-simpledashboards/latest)
+[![Documentation](https://jcdc.dev/badge/Documentation/primary/book)](https://docs.jcdc.dev/umbraco-community-simpledashboards/latest)
 [![Umbraco Marketplace](https://jcdc.dev/badge/Umbraco%20Marketplace/umbraco/umbraco)](https://marketplace.umbraco.com/package/Umbraco.Community.SimpleDashboards)
 [![GitHub](https://jcdc.dev/badge/GitHub/github/github)](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards)
 [![NuGet package downloads](https://jcdc.dev/badge/nuget/Umbraco.Community.SimpleDashboards)](https://www.nuget.org/packages/Umbraco.Community.SimpleDashboards)
