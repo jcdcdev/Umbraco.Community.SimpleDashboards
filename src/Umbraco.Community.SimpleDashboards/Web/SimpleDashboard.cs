@@ -10,10 +10,12 @@ public abstract class SimpleDashboard : ISimpleDashboard
 {
     public virtual string ViewPath => $"~/Views/Dashboards/{Alias}.cshtml";
     public virtual string ViewComponent => $"{Alias}Dashboard";
-    public virtual string Label => Name;
     public string Alias => GetType().Name.TrimEnd("Dashboard");
+    public virtual Dictionary<string, string> LocalizedNames => [];
     public string PathName => Alias.Kebaberize();
     public virtual IConditionManifest[] Conditions => BuildConditions().ToArray();
+    public bool HasLocalizedNames => LocalizedNames.Count != 0;
+    public string Label => HasLocalizedNames ? $"#simpleDashboardTabs_{Alias.ToFirstLowerInvariant()}" : Name;
     public virtual int Weight => 100;
     public virtual string Name => Alias;
     public virtual string[] Sections => [Constants.Sections.Content];

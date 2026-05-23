@@ -7,6 +7,7 @@
 
     <ItemGroup>
         <PackageReference Include="Umbraco.Cms" Version="17.0.0" />
+        <PackageReference Include="Umbraco.Community.ManifestPeek" Version="17.0.0" />
         <PackageReference Include="uSync" Version="17.0.0" />
     </ItemGroup>
 
