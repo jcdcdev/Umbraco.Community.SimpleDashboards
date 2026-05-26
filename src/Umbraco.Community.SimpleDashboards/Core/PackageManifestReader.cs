@@ -14,7 +14,8 @@ namespace Umbraco.Community.SimpleDashboards.Core;
 public class PackageManifestReader(
     ISimpleDashboardService simpleDashboardService,
     ILocalizedTextService localizedTextService,
-    ILogger<PackageManifestReader> logger) : IPackageManifestReader
+    ILogger<PackageManifestReader> logger
+) : IPackageManifestReader
 {
     public Task<IEnumerable<PackageManifest>> ReadPackageManifestsAsync()
     {
@@ -67,18 +68,10 @@ public class PackageManifestReader(
         }
 
         var cultures = localizedTextService.GetSupportedCultures().ToList();
+        var parentCultures = cultures.Where(x => !x.IsNeutralCulture).Select(x => x.Parent).Distinct();
+        var allCultures = cultures.Concat(parentCultures).Distinct().ToList();
 
-        // Umbraco's translations for UK English are marked as `en` not `en-GB`
-        try
-        {
-            cultures.Add(new CultureInfo("en"));
-        }
-        catch (Exception ex)
-        {
-            logger.LogError(ex, "Error adding en fallback culture");
-        }
-
-        foreach (var culture in cultures)
+        foreach (var culture in allCultures)
         {
             var cultureCode = culture.Name.ToLowerInvariant();
             var items = new Dictionary<string, string>();
@@ -86,13 +79,10 @@ public class PackageManifestReader(
             {
                 if (!dashboard.LocalizedNames.TryGetValue(cultureCode, out var localizedName))
                 {
-                    var fallbackCultureCode = culture.TwoLetterISOLanguageName;
-                    if (fallbackCultureCode != cultureCode)
+                    var fallbackCulture = culture.IsNeutralCulture ? CultureInfo.InvariantCulture : culture.Parent;
+                    if (!dashboard.LocalizedNames.TryGetValue(fallbackCulture.Name.ToLowerInvariant(), out localizedName))
                     {
-                        if (!dashboard.LocalizedNames.TryGetValue(fallbackCultureCode, out localizedName))
-                        {
-                            continue;
-                        }
+                        continue;
                     }
                 }
 
@@ -104,7 +94,7 @@ public class PackageManifestReader(
                 items.Add(dashboard.Alias.ToFirstLowerInvariant(), localizedName);
             }
 
-            if (!items.Any())
+            if (items.Count == 0)
             {
                 continue;
             }
