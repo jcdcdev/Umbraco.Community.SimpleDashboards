@@ -4,7 +4,7 @@
 
 - Convert constructor/fluent configuration to property/manifest overrides on `SimpleDashboard`
 - Replace `Allow` / `Deny` / `AddAccessRule` with `IConditionManifest[]` (use `ConditionManifest.Create(...)`)
-- Migrate one dashboard first 
+- Migrate one dashboard first
 - Verify in backoffice
 - Then batch‑migrate the rest
 
@@ -13,7 +13,7 @@
 | v13 (legacy / constructor)                                   | v17 (manifest / property)                                                                                                      |
 |--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | `SetName("Title");`                                          | `public override string Name => "Title";`                                                                                      |
-| `SetName("Title","en-GB");`                                  | ⚠️ [TODO - Issue #211](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards/issues/211)                               |
+| `SetName("Title","en-GB");`                                  | `public override Dictionary<string, string> LocalizedNames => new() {{ "en", "Title (en)" }};`                                 |
 | `AddSection(Constants.Applications.Media);`                  | `public override string[] Sections => new[] { Constants.Applications.Media };`                                                 |
 | `AddAccessRule(SimpleAccessRule.AllowAdminGroup);`           | `Conditions` with `ConditionManifest.Create("Umb.Condition.CurrentUser.GroupId", Constants.Security.AdminGroupKey.ToString())` |
 | `Allow(x => x.UserGroup("myGroup"));`                        | Add `ConditionManifest` using the group's GUID/key (or resolve alias→GUID at startup)                                          |
@@ -76,7 +76,6 @@ public class ExampleDashboard : SimpleDashboard
   `ConditionManifest` operand is valid (GUID vs alias mismatch is the most common issue).
 
 ---
-
 
 ## Support & Contact
 

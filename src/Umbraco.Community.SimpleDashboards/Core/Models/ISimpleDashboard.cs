@@ -10,8 +10,10 @@ public interface ISimpleDashboard
     string Alias { get; }
     int Weight { get; }
     string? Name { get; }
-    string Label { get; }
+    Dictionary<string, string> LocalizedNames { get; }
     string PathName { get; }
     IConditionManifest[] Conditions { get; }
+    bool HasLocalizedNames { get; }
+    string Label { get; }
     bool HasAlias(string alias);
 }

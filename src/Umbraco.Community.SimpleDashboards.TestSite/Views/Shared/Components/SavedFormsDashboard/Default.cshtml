@@ -1,0 +1,15 @@
+﻿@model Umbraco.Community.SimpleDashboards.TestSite.ViewComponents.Dashboards.SavedFormsViewModel
+
+@if (!Model.Forms.Any())
+{
+    <div class="uui-empty">No saved forms found.</div>
+    return;
+}
+
+@foreach (var form in Model.Forms)
+{
+    <uui-box headline="Subject - @form.Subject">
+        <div class="uui-text" style="white-space:pre-wrap;">@(!string.IsNullOrWhiteSpace(form.ContentBody) ? form.ContentBody : "(empty)")</div>
+    </uui-box>
+    <div style="margin-bottom: 20px"></div>
+}

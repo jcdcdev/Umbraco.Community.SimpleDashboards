@@ -12,6 +12,15 @@
     {
         type: 'localization',
         alias: 'simple-dashboards.lang.engb',
+        name: 'English',
+        weight: 0,
+        meta: {
+            culture: 'en'
+        },
+        js: () => import('./en-us')
+    }, {
+        type: 'localization',
+        alias: 'simple-dashboards.lang.engb',
         name: 'English (UK)',
         weight: 0,
         meta: {
