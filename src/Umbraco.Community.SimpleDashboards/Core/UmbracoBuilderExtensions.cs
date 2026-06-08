@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Umbraco.Cms.Api.Common.OpenApi;
+using Umbraco.Cms.Api.Management.OpenApi;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Infrastructure.Manifest;
 using Umbraco.Community.SimpleDashboards.Core.Models;
@@ -17,7 +19,10 @@ public static class UmbracoBuilderExtensions
             builder.SimpleDashboards().Append(type);
         }
 
-        builder.Services.ConfigureOptions<ConfigApiSwaggerGenOptions>();
+        builder.AddBackOfficeOpenApiDocument(Constants.Api.ApiName, document => document
+            .WithTitle(Constants.Api.GroupName)
+            .WithBackOfficeAuthentication());
+
         builder.Services.AddSingleton<ISimpleDashboardService, SimpleDashboardService>();
         builder.Services.AddSingleton<IPackageManifestReader, PackageManifestReader>();
     }

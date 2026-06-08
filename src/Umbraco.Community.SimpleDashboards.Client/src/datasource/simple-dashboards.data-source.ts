@@ -1,10 +1,10 @@
-﻿import { UmbDataSourceResponse } from "@umbraco-cms/backoffice/repository";
-import { GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse, SimpleDashboards } from "../api";
-import { UmbControllerHost } from "@umbraco-cms/backoffice/controller-api";
-import { tryExecute } from "@umbraco-cms/backoffice/resources";
+﻿import {UmbDataSourceResponse} from "@umbraco-cms/backoffice/repository";
+import {GetRenderByDashboardResponse, SimpleDashboards} from "../api";
+import {UmbControllerHost} from "@umbraco-cms/backoffice/controller-api";
+import {tryExecute} from "@umbraco-cms/backoffice/resources";
 
 export interface ISimpleDashboardsDataSource {
-    render(alias: string): Promise<UmbDataSourceResponse<GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse>>;
+    render(alias: string): Promise<UmbDataSourceResponse<GetRenderByDashboardResponse>>;
 }
 
 export class SimpleDashboardsDataSource implements ISimpleDashboardsDataSource {
@@ -14,12 +14,12 @@ export class SimpleDashboardsDataSource implements ISimpleDashboardsDataSource {
         this.#host = host;
     }
 
-    async render(alias: string): Promise<UmbDataSourceResponse<GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse>> {
+    async render(alias: string): Promise<UmbDataSourceResponse<GetRenderByDashboardResponse>> {
         const options = {
             path: {
                 dashboard: alias,
             },
         };
-        return await tryExecute(this.#host, SimpleDashboards.getUmbracoSimpledashboardsApiV1RenderByDashboard(options))
+        return await tryExecute(this.#host, SimpleDashboards.getRenderByDashboard(options))
     }
 }

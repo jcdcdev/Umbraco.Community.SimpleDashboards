@@ -2,7 +2,7 @@
 import {UmbControllerBase} from "@umbraco-cms/backoffice/class-api";
 import {UmbControllerHost} from "@umbraco-cms/backoffice/controller-api";
 import {UmbDataSourceResponse} from "@umbraco-cms/backoffice/repository";
-import {GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse} from "../api";
+import {GetRenderByDashboardResponse} from "../api";
 import {SimpleDashboardsRepository} from "../repository/simple-dashboards.repository";
 
 export const SIMPLE_DASHBOARDS_CONTEXT_TOKEN = new UmbContextToken<SimpleDashboardsContext>("SimpleDashboardsContext");
@@ -16,7 +16,7 @@ export class SimpleDashboardsContext extends UmbControllerBase {
         this.#repository = new SimpleDashboardsRepository(this);
     }
 
-    async render(alias: string): Promise<UmbDataSourceResponse<GetUmbracoSimpledashboardsApiV1RenderByDashboardResponse>> {
+    async render(alias: string): Promise<UmbDataSourceResponse<GetRenderByDashboardResponse>> {
         return await this.#repository.render(alias);
     }
 }
