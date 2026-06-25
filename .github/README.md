@@ -16,18 +16,10 @@ This packages aims to help developers quickly put together Umbraco Dashboards us
 - Supports both Views & View Components
 - Easy to define section permissions
 
-> [!IMPORTANT]
-> Version 16 will only receive security updates and no new features.
+> [!WARNING]
+> Version 16 is no longer supported and is End of Life (EOL).
 
 > Please review the [security policy](https://github.com/jcdcdev/Umbraco.Community.SimpleDashboards?tab=security-ov-file#supported-versions) for more information.
-
-## Installation
-
-### Install Package
-
-```powershell
-dotnet add package Umbraco.Community.SimpleDashboards 
-```
 
 ## Security
 
